@@ -1,12 +1,33 @@
 import React from 'react';
 import './App.css';
+import Header from '../Header/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>HEJ</h1>
-    </div>
-  );
+
+interface Props {
+
+}
+
+interface State {
+
+}
+class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        <Header />
+      </div>
+    );
+
+  }
+
+
+  
+  
+  
 }
 
 export default App;
