@@ -1,6 +1,5 @@
 import React from "react"
-
-
+import './Header.css'
 interface State {
 
 }
@@ -16,7 +15,11 @@ class Header extends React.Component<Props, State> {
 
     render() {
         return(
-            <div>HEJSAN</div>
+            <div>
+                <h1>POKEPEDIA</h1>
+                <i className="fas fa-bars"></i>
+            </div>
+
         )
     }
 
