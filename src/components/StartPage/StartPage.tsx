@@ -10,9 +10,7 @@ interface State {
 }
 
 class StartPage extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props)
-    }
+
     render() {
         return (
             <PokemonOfTheDay />
