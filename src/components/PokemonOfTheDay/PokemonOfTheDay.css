@@ -6,6 +6,8 @@
 
 .pokemon_pic {
     width: 90%;
+    background: rgb(101,237,199);
+    background: linear-gradient(0deg, rgba(101,237,199,1) 0%, rgba(255,217,103,1) 100%);
 }
 
 .pokemon_text {
