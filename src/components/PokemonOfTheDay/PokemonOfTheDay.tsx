@@ -1,6 +1,7 @@
 import React from "react"
 import wigglytuff from "../../assets/Wigglytuff.png"
 import "./PokemonOfTheDay.css"
+import axios from "axios"
 
 
 interface Props {
@@ -8,13 +9,27 @@ interface Props {
 }
 
 interface State {
-
+    url: string,
+    pokemon: null
 }
 
 class PokemonOfTheDay extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
+        this.state = {
+            url: "https://pokeapi.co/api/v2/pokemon/",
+            pokemon: null
+        }
     }
+
+    async componentDidMount() {
+        const res = await axios.get(this.state.url)
+        const pokemonArray = res.data["results"]
+        const randomPokemon = pokemonArray[Math.floor(Math.random() * pokemonArray.length)]
+        this.setState({ pokemon: randomPokemon })
+        console.log(this.state.pokemon)
+    }
+
     render() {
         return (
             <div className="pokemon_container">
