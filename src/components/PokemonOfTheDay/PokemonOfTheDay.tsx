@@ -7,37 +7,37 @@ interface Props {
 }
 
 interface State {
-    url: string,
     name: null | string,
     imgUrl: string,
-    pokemonIndex: string
+    pokemonIndex: number
 }
 
 class PokemonOfTheDay extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            url: "https://pokeapi.co/api/v2/pokemon?limit=964",
             name: "",
             imgUrl: "",
-            pokemonIndex: ""
+            pokemonIndex: 0
         }
     }
 
     async componentDidMount() {
-        const res = await axios.get(this.state.url)
-        const pokemonArray = res.data["results"]
-        const randomPokemon = pokemonArray[Math.floor(Math.random() * pokemonArray.length)]
-        this.setState({ url: randomPokemon.url })
+        const pokemonLimit = 963
+        const daysSinceCalendarStart = 1 + Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24)
+        const pokemonIndexOfToday = daysSinceCalendarStart % pokemonLimit
+        const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonIndexOfToday
 
-        const pokemonIndex = this.state.url.split("/")[this.state.url.split('/').length - 2]
+        const res = await axios.get(url)
 
-        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`
+        const pokemonName = res.data["species"].name
+
+        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndexOfToday}.png?raw=true`
 
         this.setState({
-            name: randomPokemon.name,
+            name: pokemonName,
             imgUrl,
-            pokemonIndex
+            pokemonIndex: pokemonIndexOfToday
         })
     }
 
