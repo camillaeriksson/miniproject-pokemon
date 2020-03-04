@@ -1,7 +1,6 @@
 import React from "react"
 import "./Header.css"
 import icon from "./assets/icons/pokemon.png"
-import Hambuger from "../Hamburger/Hamburger"
 import { BrowserRouter, Link } from "react-router-dom"
 
 interface State {

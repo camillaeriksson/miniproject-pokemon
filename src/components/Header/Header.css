@@ -1,8 +1,5 @@
 .linkDiv {
     height: 0;
-    overflow: hidden;
-    /* display: none; */
-
 }
 
 .header {
@@ -12,6 +9,7 @@
     top: 0;
     right: 0;
 }
+
 
 .links {
     text-decoration: none;
