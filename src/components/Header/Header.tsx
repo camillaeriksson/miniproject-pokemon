@@ -1,6 +1,6 @@
 import React from "react"
 import "./Header.css"
-import icon from "./assets/icons/pokemon.png"
+/* import icon from "./assets/icons/pokemon.png" */
 import { BrowserRouter, Link } from "react-router-dom"
 
 interface State {
