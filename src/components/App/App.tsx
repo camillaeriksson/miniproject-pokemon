@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from '../Header/Header';
+import StartPage from "../StartPage/StartPage"
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,32 +9,14 @@ import {
   Link
 } from "react-router-dom";
 
-
-interface Props {
-
-}
-
-interface State {
-
-}
-class App extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-  }
   
-  render() {
-    return (
-      <div className="App">
-        <Header />
-      </div>
-    );
-
-  }
-
-
-  
-  
-  
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <StartPage />
+    </div>
+  );
 }
 
 export default App;
