@@ -1,0 +1,35 @@
+.linkDiv {
+    height: 0;
+}
+
+.header {
+    background-color: lightblue;
+    position: fixed; 
+    left: 0; 
+    top: 0;
+    right: 0;
+}
+
+
+.links {
+    text-decoration: none;
+    color: royalblue; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16pt;
+    line-height: 1.8;
+}
+
+.links:hover {
+    color: rgb(0, 16, 109);
+}
+
+
+.fas {
+    padding: 1rem;
+    font-size: 22pt;
+    color: royalblue;
+}
+
