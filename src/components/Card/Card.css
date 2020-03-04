@@ -1,0 +1,7 @@
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    background: pink;
+    height: 20rem;
+    margin: 1rem;
+}
