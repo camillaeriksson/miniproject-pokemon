@@ -11,8 +11,13 @@
 
 .pokemon_pic {
     width: 90%;
-    background: rgb(101,237,199);
-    background: linear-gradient(0deg, rgba(101,237,199,1) 0%, rgba(255,217,103,1) 100%);
+    /* border: 6px solid lightblue;
+    background-color: lightcyan; */
+    border: 6px solid yellow;
+    /* background-color: lightyellow; */
+    background: yellow;
+    background: linear-gradient(0deg, orange 0%, rgb(252, 255, 62) 100%);
+    margin: 1rem;
 }
 
 .pokemon_text {
