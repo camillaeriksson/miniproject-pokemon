@@ -1,11 +1,8 @@
 .linkDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 16pt;
-    line-height: 1.8;
-    height: 260px;
+    height: 0;
+    overflow: hidden;
+    /* display: none; */
+
 }
 
 .header {
@@ -18,9 +15,13 @@
 
 .links {
     text-decoration: none;
-    color: royalblue;
-
-    
+    color: royalblue; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16pt;
+    line-height: 1.8;
 }
 
 .links:hover {

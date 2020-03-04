@@ -15,13 +15,15 @@ class Header extends React.Component<Props, State> {
         super(props)
 
         this.state = {
-            isOpen: false
+            isOpen: false,
+            
         }
 
     }
 
     handleOnClick = () => {
         this.setState({ isOpen: !this.state.isOpen })
+    
     }
 
 
@@ -30,13 +32,14 @@ class Header extends React.Component<Props, State> {
             <BrowserRouter>
            <header className="header">
                <i onClick={ this.handleOnClick } className="fas fa-bars"></i>
-               <div className="linkDiv">
-                   <Link className="links" to="/">Red</Link>
-                   <Link  className="links" to="/">Blue</Link>
-                   <Link className="links" to="/">Green</Link>
-                   <Link className="links" to="/">Pink</Link>
-                   <Link className="links" to="/">Yellow</Link>
-               </div>
+                {this.state.isOpen && 
+                    <div className="linkDiv" style={{ height: "260px" }}>
+                        <Link className="links" to="/">Red</Link>
+                        <Link className="links" to="/">Blue</Link>
+                        <Link className="links" to="/">Green</Link>
+                        <Link className="links" to="/">Pink</Link>
+                        <Link className="links" to="/">Yellow</Link>
+                    </div>}
            </header>
             </BrowserRouter>
             /* <div>
