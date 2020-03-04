@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import CategoryPage from '../CategoryPage/CategoryPage'
+import Dashboard from '../Dashboard/Dashboard';
 
 function App() {
   return (
     <div className="App">
-      <CategoryPage />
+      <Dashboard />
     </div>
   );
 }
