@@ -4,6 +4,7 @@ import Card from '../Card/Card'
 import axios from 'axios'
 
 interface Props {
+
 }
 
 interface State {
@@ -11,7 +12,7 @@ interface State {
     pokemon: [
         {
             name: string,
-            url: string
+            url: string,
         }
     ]
     ;
@@ -22,8 +23,8 @@ export default class CategoryPage extends React.Component<Props, State> {
         super(props)
 
         this.state = {
-            url: "https://pokeapi.co/api/v2/type/",
-            pokemon: [{ name: "", url: "" }],
+            url: "https://pokeapi.co/api/v2/pokemon-color/",
+            pokemon: [{ name: "", url: "", }],
 
         }
     }
@@ -33,7 +34,6 @@ export default class CategoryPage extends React.Component<Props, State> {
     }
 
     render() {
-
         return (
             <div>
                 {

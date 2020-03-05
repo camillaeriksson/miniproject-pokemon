@@ -1,8 +1,9 @@
 import React from 'react'
 import './Card.css'
-import axios from 'axios'
+// import axios from 'axios'
 
 interface Props {
+
 }
 
 interface State {
