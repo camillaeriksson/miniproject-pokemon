@@ -1,0 +1,56 @@
+.linkDiv {
+    height: 0;
+}
+
+.header {
+    /* background-color: rgb(172, 234, 255); */
+    background-color: yellow;
+   /*  position: fixed; 
+    left: 0; 
+    top: 0;
+    right: 0; */
+}
+
+.headerItems {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links {
+    text-decoration: none;
+    color: black; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16pt;
+    line-height: 1.8;
+}
+
+.links:hover {
+    color: rgb(0, 16, 109);
+}
+
+
+.fas {
+    padding: 1rem;
+    font-size: 22pt;
+    color: black;
+}
+
+.pokemonIcon {
+    height: 2rem;
+    width: 2rem;
+    padding: 1rem;
+}
+
+.pokemonTitle {
+    width: 11rem;
+    height: 4rem;
+    padding: 1rem;
+
+}
+
+/* colors:
+purple: #9893FF; */
