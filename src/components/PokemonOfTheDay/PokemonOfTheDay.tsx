@@ -9,7 +9,8 @@ interface Props {
 interface State {
     name: null | string,
     imgUrl: string,
-    pokemonIndex: number
+    pokemonIndex: number,
+    pokemonType: string
 }
 
 class PokemonOfTheDay extends React.Component<Props, State> {
@@ -18,7 +19,8 @@ class PokemonOfTheDay extends React.Component<Props, State> {
         this.state = {
             name: "",
             imgUrl: "",
-            pokemonIndex: 0
+            pokemonIndex: 0,
+            pokemonType: ""
         }
     }
 
@@ -30,18 +32,24 @@ class PokemonOfTheDay extends React.Component<Props, State> {
 
         const res = await axios.get(url)
 
-        const pokemonName = res.data["species"].name
+        const pokemonName = res.data.species.name
+        const pokemonType = res.data.types[0].type.name
 
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndexOfToday}.png?raw=true`
 
         this.setState({
             name: pokemonName,
             imgUrl,
-            pokemonIndex: pokemonIndexOfToday
+            pokemonIndex: pokemonIndexOfToday,
+            pokemonType
         })
     }
 
     render() {
+
+        const nullVariable: any = null;
+        console.log(nullVariable.somethingThatDoesNotExist);
+
         return (
             <div className="pokemon_container">
                 <h1 className="heading_mobile">Pokemon of the day</h1>
@@ -50,6 +58,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
                     <h1 className="heading_desktop">Pokemon of the day</h1>
                     <h2>{this.state.name?.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join('')}</h2>
                     <p className="pokemon_text">Index: {this.state.pokemonIndex}</p>
+                    <p>Type: {this.state.pokemonType.split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join('')}</p>
                 </div>
             </div>
         )

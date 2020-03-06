@@ -9,15 +9,18 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ErrorBoundary from "../Errorboundry/errorboundry";
 
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <StartPage />
-      <CategoryPage />
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Header />
+        <StartPage />
+        <CategoryPage />
+      </div>
+    </ErrorBoundary>
   );
 }
 
