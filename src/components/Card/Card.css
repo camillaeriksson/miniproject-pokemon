@@ -1,0 +1,17 @@
+.cardContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background: pink;
+    height: 20rem;
+    margin: 1rem;
+}
+
+h1{
+    margin: 0.3rem;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
