@@ -8,41 +8,46 @@ interface Props {
 }
 
 interface State {
-    url: string,
-    pokemon: [
-        {
-            name: string,
-            url: string,
-        }
-    ]
-    ;
+    pokemons:
+    {
+        name: string,
+        url: string,
+    }[]
 }
 
 export default class CategoryPage extends React.Component<Props, State> {
+    readonly categoryName = "blue"
+
     constructor(props: Props) {
         super(props)
 
         this.state = {
-            url: "https://pokeapi.co/api/v2/pokemon-color/",
-            pokemon: [{ name: "", url: "", }],
+            pokemons: [],
 
         }
     }
     async componentDidMount() {
-        const res = await axios.get(this.state.url)
-        this.setState({ pokemon: res.data['results'] })
+        const getPokemonCategoryURL = "https://pokeapi.co/api/v2/pokemon-color"
+        const res = await axios.get(getPokemonCategoryURL)
+
+        const category = res.data.results.find((catObj: any) => catObj.name == this.categoryName)
+        const res2 = await axios.get(category.url)
+
+        this.setState({ pokemons: res2.data.pokemon_species })
     }
 
     render() {
         return (
             <div>
                 {
-                    this.state.pokemon ? (<div>
-                        {this.state.pokemon?.map(pokemon => (
-                            <h1>{pokemon.name}</h1>
-                        ))}
-                    </div>) :
-                        (<h1>loading...</h1>
+                    this.state.pokemons ? (
+                        <div>
+                            {this.state.pokemons.map(pokemon => (
+                                <Card name={pokemon.name} imgUrl={pokemon.url} />
+                            ))}
+                        </div>
+                    ) : (
+                            <h1>loading...</h1>
                         )
 
                 }
