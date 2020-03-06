@@ -47,9 +47,6 @@ class PokemonOfTheDay extends React.Component<Props, State> {
 
     render() {
 
-        const nullVariable: any = null;
-        console.log(nullVariable.somethingThatDoesNotExist);
-
         return (
             <div className="pokemon_container">
                 <h1 className="heading_mobile">Pokemon of the day</h1>
