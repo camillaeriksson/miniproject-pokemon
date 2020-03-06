@@ -1,7 +1,11 @@
 import React from "react"
 import "./Header.css"
 import icon from "./pokemon.png"
-import { BrowserRouter, Link } from "react-router-dom"
+import { BrowserRouter as Router,
+    Switch,
+    Route,
+    Link } from "react-router-dom"
+import CategoryPage from "../CategoryPage/CategoryPage"
 
 interface State {
 isOpen: Boolean
@@ -28,7 +32,7 @@ class Header extends React.Component<Props, State> {
 
     render() {
         return (
-            <BrowserRouter>
+            <Router>
            <header className="header">
                <div className="headerItems">
                <i onClick={ this.handleOnClick } className="fas fa-bars"/>
@@ -37,24 +41,21 @@ class Header extends React.Component<Props, State> {
                </div>
                 {this.state.isOpen && 
                     <div className="linkDiv" style={{ height: "260px" }}>
-                        <Link className="links" to="/">Red</Link>
+                        <Link className="links" to="/category">Red</Link>
                         <Link className="links" to="/">Blue</Link>
                         <Link className="links" to="/">Green</Link>
                         <Link className="links" to="/">Pink</Link>
                         <Link className="links" to="/">Yellow</Link>
                     </div>}
+
+           <Switch>
+           <Route path="/category">
+            <CategoryPage />
+          </Route>
+           </Switch>
            </header>
-            </BrowserRouter>
-            /* <div>
-                <div className="h1">
-                    <h1>POKEPEDIA</h1>
-                </div>
-                <div className="icon">
-                    <a href="">
-                        <img src={icon} alt="icon" />
-                    </a>
-                </div>
-            </div> */
+            </Router>
+            
             
 
         )
