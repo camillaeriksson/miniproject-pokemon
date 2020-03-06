@@ -8,8 +8,6 @@ import {
     Link
 } from "react-router-dom"
 import CategoryPage from "../CategoryPage/CategoryPage"
-import StartPage from "../StartPage/StartPage"
-import App from "../App/App"
 
 interface State {
     isOpen: Boolean
