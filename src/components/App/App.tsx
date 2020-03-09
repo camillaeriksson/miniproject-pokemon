@@ -7,6 +7,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import ErrorBoundary from "../Errorboundry/errorboundry";
 import CategoryPage from '../CategoryPage/CategoryPage';
 
 
@@ -16,12 +17,12 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-            <Route path="/category/:color">
-                <CategoryPage />
-            </Route>
-            <Route path="/">
-                <StartPage />
-            </Route>
+          <Route path="/category/:color">
+            <CategoryPage />
+          </Route>
+          <Route path="/">
+            <StartPage />
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>
