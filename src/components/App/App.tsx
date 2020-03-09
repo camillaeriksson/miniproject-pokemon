@@ -1,23 +1,31 @@
 import React from 'react';
 import './App.css';
-import CategoryPage from '../CategoryPage/CategoryPage';
 import Header from '../Header/Header';
 import StartPage from "../StartPage/StartPage"
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import ErrorBoundary from "../Errorboundry/errorboundry";
+import CategoryPage from '../CategoryPage/CategoryPage';
 
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <StartPage />
-      <CategoryPage />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/category/:color">
+            <CategoryPage />
+          </Route>
+          <Route path="/">
+            <StartPage />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

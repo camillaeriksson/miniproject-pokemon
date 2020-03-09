@@ -167,6 +167,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
     }
 
     render() {
+
         return (
             <>
                 <div onClick={this.toggleModal} className="pokemon_container">

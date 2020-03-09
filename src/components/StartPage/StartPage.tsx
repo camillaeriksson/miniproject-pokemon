@@ -1,5 +1,6 @@
 import React from "react"
 import PokemonOfTheDay from "../PokemonOfTheDay/PokemonOfTheDay"
+import ErrorBoundary from "../Errorboundry/errorboundry"
 
 interface Props {
 
@@ -13,7 +14,9 @@ class StartPage extends React.Component<Props, State> {
 
     render() {
         return (
-            <PokemonOfTheDay />
+            <ErrorBoundary>
+                <PokemonOfTheDay />
+            </ErrorBoundary>
         )
     }
 }
