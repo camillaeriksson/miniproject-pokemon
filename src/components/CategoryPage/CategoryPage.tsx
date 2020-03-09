@@ -12,11 +12,12 @@ interface State {
     {
         name: string,
         url: string,
+        imgUrl: string,
     }[]
 }
 
 export default class CategoryPage extends React.Component<Props, State> {
-    readonly categoryName = "blue"
+    readonly categoryName = "green"
 
     constructor(props: Props) {
         super(props)
@@ -53,7 +54,7 @@ export default class CategoryPage extends React.Component<Props, State> {
                     this.state.pokemons ? (
                         <div>
                             {this.state.pokemons.map(pokemon => (
-                                <Card name={pokemon.name} pokemonURL={pokemon.url} />
+                                <Card name={pokemon.name} pokemonId={pokemon.url} />
                             ))}
                         </div>
                     ) : (
