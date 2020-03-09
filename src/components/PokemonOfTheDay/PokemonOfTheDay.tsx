@@ -5,15 +5,26 @@ import Modal from "../Modal/modal"
 import "../Modal/modal.css"
 
 interface Results {
-    data: {
-        name: string,
-        stats: Array<{
-            stat: {
-                name: string
-            }
-            base_stat: number
-        }>
-    }
+    name: string,
+    height: string,
+    weight: string,
+    abilities: Array<{
+        ability: {
+            name: string
+        }
+    }>,
+    stats: Array<{
+        stat: {
+            name: string
+        }
+        base_stat: number,
+        effort: number
+    }>,
+    types: Array<{
+        type: {
+            name: string
+        }
+    }>
 }
 
 interface Props {
@@ -21,11 +32,11 @@ interface Props {
 }
 
 interface State {
-    name: null | string,
+    pokemonName: null | string,
     imgUrl: string,
-    pokemonIndex: number,
+    pokemonIndexOfToday: number,
     showModal: boolean,
-    types: [],
+    types: string[],
     description: string,
     stats: {
         hp: string,
@@ -38,7 +49,7 @@ interface State {
     height: string,
     weight: string,
     eggGroup: string,
-    abilities: string,
+    abilities: string[],
     genderRatioMale: string,
     genderRatioFemale: string,
     evs: string,
@@ -49,9 +60,9 @@ class PokemonOfTheDay extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            name: "",
+            pokemonName: "",
             imgUrl: "",
-            pokemonIndex: 0,
+            pokemonIndexOfToday: 0,
             showModal: false,
             types: [],
             description: "",
@@ -66,7 +77,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
             height: "",
             weight: "",
             eggGroup: "",
-            abilities: "",
+            abilities: [],
             genderRatioMale: "",
             genderRatioFemale: "",
             evs: "",
@@ -85,7 +96,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
             return (
                 <Modal>
                     <div className="modal_container" onClick={this.toggleModal}>
-                        <h1>{this.state.name}</h1>
+                        <h1>{this.state.pokemonName}</h1>
                         <button onClick={this.toggleModal}>CLOSE MODAL</button>
                     </div>
                 </Modal>
@@ -102,10 +113,22 @@ class PokemonOfTheDay extends React.Component<Props, State> {
         const res = await axios.get<Results>(url)
 
         const pokemonName = res.data.name
+        const height = res.data.height
+        const weight = res.data.weight
+        const types = res.data.types.map(type => type.type.name)
+        const abilities = res.data.abilities.map(ability => {
+            return ability.ability.name
+        })
+        const evs = res.data.stats.filter(stat => {
+            if (stat.effort > 0) {
+                return true
+            }
+            return false
+        }).map(stat => {
+            return `${stat.effort} ${stat.stat.name}`
+        }).join(', ')
 
-        let hp, attack, defense, speed, specialAttack, specialDefense = ''
-
-        console.log(res.data.stats)
+        let hp, attack, defense, speed, specialAttack, specialDefense
 
         res.data.stats.map(stat => {
             switch (stat.stat.name) {
@@ -133,9 +156,13 @@ class PokemonOfTheDay extends React.Component<Props, State> {
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndexOfToday}.png?raw=true`
 
         this.setState({
-            name: pokemonName,
+            pokemonName,
             imgUrl,
-            pokemonIndex: pokemonIndexOfToday
+            pokemonIndexOfToday,
+            height,
+            weight,
+            types,
+            abilities
         })
     }
 
@@ -147,8 +174,8 @@ class PokemonOfTheDay extends React.Component<Props, State> {
                     <img className="pokemon_pic" src={this.state.imgUrl} alt="Pokemon of the day" />
                     <div className="heading_and_text">
                         <h1 className="heading_desktop">Pokemon of the day</h1>
-                        <h2>{this.state.name?.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join('')}</h2>
-                        <p>Index: {this.state.pokemonIndex}</p>
+                        <h2>{this.state.pokemonName?.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join('')}</h2>
+                        <p>Index: {this.state.pokemonIndexOfToday}</p>
                     </div>
                 </div>
                 {this.modal}
