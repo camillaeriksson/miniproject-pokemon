@@ -53,7 +53,7 @@ export default class CategoryPage extends React.Component<Props, State> {
                     this.state.pokemons ? (
                         <div>
                             {this.state.pokemons.map(pokemon => (
-                                <Card name={pokemon.name} />
+                                <Card name={pokemon.name} pokemonURL={pokemon.url} />
                             ))}
                         </div>
                     ) : (
