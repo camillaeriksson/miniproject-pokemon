@@ -3,19 +3,28 @@ import './App.css';
 import Header from '../Header/Header';
 import StartPage from "../StartPage/StartPage"
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import CategoryPage from '../CategoryPage/CategoryPage';
 
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <StartPage />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Switch>
+            <Route path="/category/:color">
+                <CategoryPage />
+            </Route>
+            <Route path="/">
+                <StartPage />
+            </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
