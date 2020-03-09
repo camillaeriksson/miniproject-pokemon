@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import CategoryPage from '../CategoryPage/CategoryPage';
 import Header from '../Header/Header';
 import StartPage from "../StartPage/StartPage"
 import {
@@ -16,7 +15,6 @@ function App() {
     <div className="App">
       <Header />
       <StartPage />
-      <CategoryPage />
     </div>
   );
 }
