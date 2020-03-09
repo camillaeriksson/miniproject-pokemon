@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 import axios from 'axios'
 
 interface Props {
-
+    // color: string
 }
 
 interface State {
@@ -26,7 +26,8 @@ export default class CategoryPage extends React.Component<Props, State> {
 
         }
     }
-    async componentDidMount() {
+
+    async pokemonApi() {
         const getPokemonCategoryURL = "https://pokeapi.co/api/v2/pokemon-color"
         const res = await axios.get(getPokemonCategoryURL)
 
@@ -36,6 +37,15 @@ export default class CategoryPage extends React.Component<Props, State> {
         this.setState({ pokemons: res2.data.pokemon_species })
     }
 
+    async componentDidMount() {
+        this.pokemonApi()
+    }
+
+    // async componentDidUpdate(prevProps: Props) {
+    //     if (this.props.color !== prevProps.color)
+    // }
+
+
     render() {
         return (
             <div>
@@ -43,7 +53,7 @@ export default class CategoryPage extends React.Component<Props, State> {
                     this.state.pokemons ? (
                         <div>
                             {this.state.pokemons.map(pokemon => (
-                                <Card name={pokemon.name} imgUrl={pokemon.url} />
+                                <Card name={pokemon.name} />
                             ))}
                         </div>
                     ) : (
