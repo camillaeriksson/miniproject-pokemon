@@ -44,9 +44,9 @@ class Header extends React.Component<Props, State> {
                     <div className="linkDiv" style={{ height: "260px" }}>
                         <Link className="links" to="/category/red">Red</Link>
                         <Link className="links" to="/category/blue">Blue</Link>
-                        <Link className="links" to="/category">Green</Link>
-                        <Link className="links" to="/category">Pink</Link>
-                        <Link className="links" to="/category">Yellow</Link>
+                        <Link className="links" to="/category/green">Green</Link>
+                        <Link className="links" to="/category/pink">Pink</Link>
+                        <Link className="links" to="/category/yellow">Yellow</Link>
                     </div>}
             </header>
         )
