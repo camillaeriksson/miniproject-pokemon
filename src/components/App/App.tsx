@@ -13,19 +13,21 @@ import CategoryPage from '../CategoryPage/CategoryPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route path="/category/:color">
-            <CategoryPage />
-          </Route>
-          <Route path="/">
-            <StartPage />
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route path="/category/:color">
+              <CategoryPage />
+            </Route>
+            <Route path="/">
+              <StartPage />
+            </Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

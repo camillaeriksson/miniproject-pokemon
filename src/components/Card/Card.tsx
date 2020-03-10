@@ -1,6 +1,5 @@
 import React from 'react'
 import './Card.css'
-import { stringify } from 'querystring'
 
 interface Props {
     name: string,
@@ -34,7 +33,7 @@ export default class Card extends React.Component<Props, State> {
     render() {
         return (
             <div className="cardContainer">
-                <img className="cardImg" src={this.state.imgUrl} />
+                <img className="cardImg" src={this.state.imgUrl} alt="pokemon" />
                 <h1>{this.props.name}</h1>
                 <h1>{this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)}</h1>
             </div>
