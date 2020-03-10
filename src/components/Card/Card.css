@@ -8,15 +8,12 @@
     margin: 1rem;
 }
 
-h1{
-    margin: 0.3rem;
-}
-
-p{
-    margin: 0;
-    padding: 0;
-}
-
 .cardImg{
     width: 90%;
 }
+
+
+ .pokeLike {
+    height: 2rem;
+    width: 2rem;
+} 
