@@ -281,7 +281,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
     async componentDidMount() {
 
         const pokemonLimit = 963
-        const daysSinceCalendarStart = 1 + Math.floor(new Date("2020-05-06").getTime() / 1000 / 60 / 60 / 24)
+        const daysSinceCalendarStart = 1 + Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24)
         const pokemonIndexOfToday = daysSinceCalendarStart % pokemonLimit
         const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonIndexOfToday
         const pokemonSpeciesUrl = "https://pokeapi.co/api/v2/pokemon-species/" + pokemonIndexOfToday
