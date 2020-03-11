@@ -1,15 +1,18 @@
-.cardContainer{
+ .cardContainer{
+   background: yellow;
+   margin: 1rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;
+}  
+
+
+.imgStyle{
+    width: 15rem;
     display: flex;
     justify-content: center;
-    background: pink;
-    height: 20rem;
-    align-items: center;
-    flex-direction: column;
-    margin: 1rem;
-}
-
-.cardImg{
-    width: 90%;
 }
 
 
@@ -17,3 +20,12 @@
     height: 2rem;
     width: 2rem;
 } 
+
+
+@media only screen and (min-width: 400px) {
+    .cardContainer{
+        margin: 1rem;
+        width: 20%;
+    
+    }  
+}
