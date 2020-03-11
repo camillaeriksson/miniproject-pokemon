@@ -1,6 +1,7 @@
 import React from 'react'
 import './Card.css'
-import { stringify } from 'querystring'
+import unLike from "./pokeball.png"
+import liked from "./pokemon.png"
 
 interface Props {
     name: string,
@@ -8,35 +9,49 @@ interface Props {
 }
 
 interface State {
-    imgUrl: string
-
+    imgUrl: string,
+    liked: boolean
 }
 
 export default class Card extends React.Component<Props, State> {
+
 
     constructor(props: Props) {
         super(props)
 
         this.state = {
             imgUrl: "",
+            liked: false
         }
+
+        this.handleLike = this.handleLike.bind(this);
     }
+
+    handleLike() {
+        this.setState({
+            liked: !this.state.liked
+        });
+    }
+
 
     async componentDidMount() {
         const pokemonId = this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonId}.png?raw=true`
-
         this.setState({
             imgUrl,
         })
     }
 
     render() {
+        const theImgs = this.state.liked ? <img className="pokeLike" src={liked} alt="Noliked" /> : <img className="pokeLike" src={unLike} alt="liked" />
         return (
+
             <div className="cardContainer">
-                <img className="cardImg" src={this.state.imgUrl} />
+                <img className="cardImg" src={this.state.imgUrl} alt="A pokemon" />
                 <h1>{this.props.name}</h1>
                 <h1>{this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)}</h1>
+                <h2 onClick={this.handleLike}>
+                    {theImgs}</h2>
             </div>
 
         )
