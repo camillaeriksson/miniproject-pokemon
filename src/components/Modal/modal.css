@@ -1,0 +1,11 @@
+ .modal_container {
+     z-index: 100;
+    position: absolute;
+    top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: orange;
+} 
