@@ -6,19 +6,6 @@
     margin: 0 auto;
 }
 
-.description, .profile {
-    background-color: #e9ecef;
-    width: 90%;
-    padding: 0.2rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.profile {
-    margin-bottom: 1rem;
-}
-
 .myButton {
 	background-color:#ffc400;
 	border-radius:12px;
@@ -41,31 +28,6 @@
 	top:1px;
 }
 
-.types {
-    margin-top: 0.5rem;
-}
-
-.progress-bar {
-    background-color: red !important;
-}
-
-.progress_container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    flex-direction: column;
-}
-.progress {
-    width: 80%;
-    margin: 0 auto;
-}
-
-h2 {
-    margin: 0.5rem 0;
-}
-
 h1 {
     font-weight: bold;
 }
@@ -80,27 +42,10 @@ h1 {
     display: none;
 }
 
-.pokemon_pic {
-    width: 70%;
-    /* border: 6px solid lightblue;
-    background-color: lightcyan; */
-    border: 6px solid yellow;
-    /* background-color: lightyellow; */
-    background: yellow;
-    background: linear-gradient(0deg, orange 0%, rgb(252, 255, 62) 100%);
-    margin: 0.5rem;
-}
-
 .heading_and_text {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.type {
-    border-radius: 0.6rem;
-    padding: 0.3rem;
-    margin: 0.3rem;
 }
 
 @media only screen and (min-width: 400px) {
