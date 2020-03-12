@@ -14,7 +14,8 @@ interface State {
         name: string,
         url: string,
         imgUrl: string,
-    }[]
+    }[],
+
 }
 
 export default class CategoryPage extends React.Component<Props, State> {
@@ -46,8 +47,8 @@ export default class CategoryPage extends React.Component<Props, State> {
     // async componentDidUpdate(prevProps: Props) {
     //     if (this.props.color !== prevProps.color)
     // }
-    toFavourite(){
-        
+    toFavourite() {
+
     }
 
     render() {
@@ -58,13 +59,12 @@ export default class CategoryPage extends React.Component<Props, State> {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} handleFavourite={this.toFavourite}/>
+                                    <Card name={pokemon.name} pokemonId={pokemon.url} handleFavourite={this.toFavourite} />
                                 ))}
                             </div>
                         ) : (
                                 <h1>loading...</h1>
                             )
-
                     }
                 </div>
             </ErrorBoundary>
