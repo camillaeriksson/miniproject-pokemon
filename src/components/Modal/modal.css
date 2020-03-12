@@ -1,8 +1,8 @@
  .modal_container {
      z-index: 100;
     position: absolute;
-    top: 4rem;
-    width: 100%;
+    top: 6rem;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;

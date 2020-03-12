@@ -3,29 +3,9 @@ import "./PokemonOfTheDay.css"
 import axios from "axios"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
-
-
-
-const TYPE_COLORS = {
-    normal: "BDBDAE",
-    poison: "A55A9D",
-    psychic: "F663B1",
-    grass: "8BD650",
-    ground: "EAC956",
-    ice: "96F1FF",
-    fire: "FA5543",
-    rock: "CDBC72",
-    dragon: "8A76FF",
-    water: "56AEFF",
-    bug: "C2D21F",
-    dark: "8B6654",
-    fighting: "A85643",
-    ghost: "7571D1",
-    steel: "C4C2DB",
-    flying: "79A3FF",
-    electric: "FDE33B",
-    fairy: "F9ADFF"
-}
+import PokemonStats from "../PokemonStats/PokemonStats"
+import PokemonProfile from "../PokemonProfile/PokemonProfile"
+import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 
 interface SpeciesResults {
     flavor_text_entries: Array<{
@@ -64,17 +44,22 @@ interface Results {
     }>
 }
 
-interface Props {
-
-}
+interface Props { }
 
 interface State {
     pokemonName: string,
     imgUrl: string,
-    pokemonIndexOfToday: number,
+    pokemonIndex: number,
     showModal: boolean,
     types: string[],
     description: string,
+    height: string,
+    weight: string,
+    eggGroups: string,
+    abilities: string[],
+    evs: string,
+    hatchSteps: number,
+    catchRate: number,
     stats: {
         hp: number,
         attack: number,
@@ -82,26 +67,26 @@ interface State {
         speed: number,
         specialAttack: number,
         specialDefense: number
-    },
-    height: string,
-    weight: string,
-    eggGroups: string,
-    abilities: string[],
-    evs: string,
-    hatchSteps: number,
-    catchRate: number
+    }
 }
 
-class PokemonOfTheDay extends React.Component<Props, State> {
+export default class PokemonOfTheDay extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
             pokemonName: "",
             imgUrl: "",
-            pokemonIndexOfToday: 0,
+            pokemonIndex: 0,
             showModal: false,
             types: [],
             description: "",
+            height: "",
+            weight: "",
+            eggGroups: "",
+            abilities: [],
+            evs: "",
+            hatchSteps: 0,
+            catchRate: 0,
             stats: {
                 hp: 0,
                 attack: 0,
@@ -109,14 +94,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
                 speed: 0,
                 specialAttack: 0,
                 specialDefense: 0
-            },
-            height: "",
-            weight: "",
-            eggGroups: "",
-            abilities: [],
-            evs: "",
-            hatchSteps: 0,
-            catchRate: 0
+            }
         }
     }
 
@@ -132,144 +110,17 @@ class PokemonOfTheDay extends React.Component<Props, State> {
         return str[0].toUpperCase() + str.slice(1);
     }
 
-    private removeSymbols = (str: string) => {
-        if (str.length === 0) return "";
-        return str.replace('\n', ' ').replace('\t', ' ').replace('\f', ' ');
-    }
-
     private get modal() {
         if (this.state.showModal) {
             return (
                 <Modal>
                     <div className="modal_container" onClick={this.toggleModal}>
-                        <h2>{this.capitalizeWord(this.state.pokemonName)}</h2>
-                        <p>Index: {this.state.pokemonIndexOfToday}</p>
-                        <img className="pokemon_pic" src={this.state.imgUrl} alt="Pokemon of the day" />
-                        <div className="types">
-                            {this.state.types.map(type => (
-                                <span
-                                    key={type}
-                                    className="type"
-                                    style={{
-                                        //@ts-ignore  // A bit of cheating....
-                                        backgroundColor: `#${TYPE_COLORS[type]}`,
-                                        color: "white"
-                                    }}>
-                                    {this.capitalizeWord(type)}
-                                </span> as React.HTMLAttributes<HTMLSpanElement>
-                            ))}
-                        </div>
-                        <div className="description">
-                            <p>{this.removeSymbols(this.state.description)}</p>
-                        </div>
-                        <div className="progress_container">
-                            <p>HP</p>
-                            <div className="progress">
-                                <div className="progress-bar"
-                                    role="progressbar"
-                                    style={{
-                                        width: `${this.state.stats.hp}%`,
-                                    }}
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuenow="25"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemin="0"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemax="20">
-                                    <small>{this.state.stats.hp}</small>
-                                </div>
-                            </div>
-                            <p>Attack</p>
-                            <div className="progress">
-                                <div className="progress-bar"
-                                    role="progressbar"
-                                    style={{
-                                        width: `${this.state.stats.attack}%`,
-                                    }}
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuenow="25"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemin="0"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemax="20">
-                                    <small>{this.state.stats.attack}</small>
-                                </div>
-                            </div>
-                            <p>Defense</p>
-                            <div className="progress">
-                                <div className="progress-bar"
-                                    role="progressbar"
-                                    style={{
-                                        width: `${this.state.stats.defense}%`,
-                                    }}
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuenow="25"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemin="0"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemax="20">
-                                    <small>{this.state.stats.defense}</small>
-                                </div>
-                            </div>
-                            <p>Speed</p>
-                            <div className="progress">
-                                <div className="progress-bar"
-                                    role="progressbar"
-                                    style={{
-                                        width: `${this.state.stats.speed}%`,
-                                    }}
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuenow="25"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemin="0"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemax="20">
-                                    <small>{this.state.stats.speed}</small>
-                                </div>
-                            </div>
-                            <p>Special attack</p>
-                            <div className="progress">
-                                <div className="progress-bar"
-                                    role="progressbar"
-                                    style={{
-                                        width: `${this.state.stats.specialAttack}%`,
-                                    }}
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuenow="25"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemin="0"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemax="20">
-                                    <small>{this.state.stats.specialAttack}</small>
-                                </div>
-                            </div>
-                            <p>Special defense</p>
-                            <div className="progress">
-                                <div className="progress-bar"
-                                    role="progressbar"
-                                    style={{
-                                        width: `${this.state.stats.specialDefense}%`,
-                                    }}
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuenow="25"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemin="0"
-                                    //@ts-ignore // A bit of cheating...
-                                    aria-valuemax="20">
-                                    <small>{this.state.stats.specialDefense}</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="profile">
-                            <h5>Profile</h5>
-                            <p>Height: {this.state.height} dm</p>
-                            <p>Weight: {this.state.weight} hg</p>
-                            <p>Catch rate: {this.state.catchRate}%</p>
-                            <p>Egg groups: {this.capitalizeWord(this.state.eggGroups)}</p>
-                            <p>Hatch steps: {this.state.hatchSteps}</p>
-                            <p>Abilities: {this.state.abilities}</p>
-                            <p>EVs: {this.state.evs}</p>
-                        </div>
+                        <PokemonGeneral pokemonName={this.state.pokemonName} pokemonIndex={this.state.pokemonIndex} imgUrl={this.state.imgUrl}
+                            types={this.state.types} description={this.state.description} />
+                        <PokemonStats hp={this.state.stats.hp} attack={this.state.stats.attack} defense={this.state.stats.attack}
+                            speed={this.state.stats.speed} specialAttack={this.state.stats.specialAttack} specialDefense={this.state.stats.specialDefense} />
+                        <PokemonProfile height={this.state.height} weight={this.state.weight} eggGroups={this.state.eggGroups} abilities={this.state.abilities}
+                            evs={this.state.evs} hatchSteps={this.state.hatchSteps} catchRate={this.state.catchRate} />
                         <button className="myButton" onClick={this.toggleModal}>Close</button>
                     </div>
                 </Modal >
@@ -282,9 +133,8 @@ class PokemonOfTheDay extends React.Component<Props, State> {
 
         const pokemonLimit = 963
         const daysSinceCalendarStart = 1 + Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24)
-        const pokemonIndexOfToday = daysSinceCalendarStart % pokemonLimit
-        const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonIndexOfToday
-        const pokemonSpeciesUrl = "https://pokeapi.co/api/v2/pokemon-species/" + pokemonIndexOfToday
+        const pokemonIndex = daysSinceCalendarStart % pokemonLimit
+        const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonIndex
 
         const res = await axios.get<Results>(url)
 
@@ -307,6 +157,8 @@ class PokemonOfTheDay extends React.Component<Props, State> {
                 .map(s => s.charAt(0).toUpperCase() + s.substring(1))
                 .join(' ')}`
         }).join(', ')
+
+        const pokemonSpeciesUrl = "https://pokeapi.co/api/v2/pokemon-species/" + pokemonIndex
 
         await axios.get<SpeciesResults>(pokemonSpeciesUrl).then(res => {
             let description = ""
@@ -340,7 +192,6 @@ class PokemonOfTheDay extends React.Component<Props, State> {
         let specialAttack: number = 0
         let specialDefense: number = 0
 
-        console.log(this.state.description)
         res.data.stats.map(stat => {
             switch (stat.stat.name) {
                 case 'hp':
@@ -364,16 +215,17 @@ class PokemonOfTheDay extends React.Component<Props, State> {
             }
         })
 
-        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndexOfToday}.png?raw=true`
+        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`
 
         this.setState({
             pokemonName,
             imgUrl,
-            pokemonIndexOfToday,
+            pokemonIndex,
             height,
             weight,
             types,
             abilities,
+            evs,
             stats: {
                 hp,
                 attack,
@@ -381,8 +233,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
                 speed,
                 specialAttack,
                 specialDefense
-            },
-            evs
+            }
         })
     }
 
@@ -395,7 +246,7 @@ class PokemonOfTheDay extends React.Component<Props, State> {
                     <div className="heading_and_text">
                         <h1 className="heading_desktop">Pokemon of the day</h1>
                         <h2>{this.capitalizeWord(this.state.pokemonName)}</h2>
-                        <p>Index: {this.state.pokemonIndexOfToday}</p>
+                        <p>Index: {this.state.pokemonIndex}</p>
                     </div>
                 </div>
                 {this.modal}
@@ -403,5 +254,3 @@ class PokemonOfTheDay extends React.Component<Props, State> {
         )
     }
 }
-
-export default PokemonOfTheDay
