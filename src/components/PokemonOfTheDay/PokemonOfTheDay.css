@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .myButton {
@@ -17,7 +18,8 @@
 	font-size:14px;
 	padding:5px 10px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #000000;
+    text-shadow:0px 1px 0px #000000;
+    margin-bottom: 1rem;
 }
 .myButton:hover {
 	background-color:#ebc738;
@@ -46,6 +48,11 @@ h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+}
+
+.heading_and_text h1 {
+    font-size: 2rem;
 }
 
 @media only screen and (min-width: 400px) {
@@ -55,7 +62,7 @@ h1 {
         width: 60%;
     }
     .pokemon_pic {
-        max-width: 30%;
+        max-width: 20rem;
     }
 
     .heading_desktop {

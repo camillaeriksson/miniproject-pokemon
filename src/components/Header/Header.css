@@ -5,6 +5,8 @@
 .header {
     /* background-color: rgb(172, 234, 255); */
     background-color: yellow;
+    height: auto;
+    width: 100vw;
    /*  position: fixed; 
     left: 0; 
     top: 0;
@@ -14,7 +16,9 @@
 .headerItems {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 6rem;
 }
 
 .links {
@@ -34,7 +38,6 @@
 
 
 .fas {
-    padding: 1rem;
     font-size: 22pt;
     color: black;
 }
@@ -42,14 +45,15 @@
 .pokemonIcon {
     height: 2rem;
     width: 2rem;
-    padding: 1rem;
 }
 
 .pokemonTitle {
     width: 11rem;
     height: 4rem;
-    padding: 1rem;
+}
 
+*, ::after, ::before {
+    box-sizing: unset !important;
 }
 
 /* colors:

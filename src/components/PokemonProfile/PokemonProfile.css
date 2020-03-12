@@ -14,3 +14,15 @@
 .profile p {
     margin: 0;
 }
+
+@media only screen and (min-width: 400px) {
+    .profile {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .profile {
+        width: 40%;
+    }
+}

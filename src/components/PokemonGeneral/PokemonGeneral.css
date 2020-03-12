@@ -35,3 +35,15 @@ h2 {
     margin: 1rem 0 0.5rem 0;
     font-weight: bold;
 }
+
+@media only screen and (min-width: 400px) {
+    .description {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .description {
+        width: 40%;
+    }
+}
