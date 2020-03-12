@@ -1,0 +1,12 @@
+.containers{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category_container {
+    position: absolute;
+    margin-top: 6rem;
+    z-index: 0;
+}

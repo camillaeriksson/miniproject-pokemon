@@ -46,17 +46,19 @@ export default class CategoryPage extends React.Component<Props, State> {
     // async componentDidUpdate(prevProps: Props) {
     //     if (this.props.color !== prevProps.color)
     // }
-
+    toFavourite(){
+        
+    }
 
     render() {
         return (
             <ErrorBoundary>
-                <div>
+                <div className="category_container">
                     {
                         this.state.pokemons ? (
-                            <div>
+                            <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} />
+                                    <Card name={pokemon.name} pokemonId={pokemon.url} handleFavourite={this.toFavourite}/>
                                 ))}
                             </div>
                         ) : (

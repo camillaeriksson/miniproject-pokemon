@@ -25,6 +25,10 @@ class Header extends React.Component<Props, State> {
 
     }
 
+    closeDropdown = () => {
+        this.setState({ isOpen: false })
+    }
+
 
     render() {
 
@@ -35,16 +39,16 @@ class Header extends React.Component<Props, State> {
                 <div className="headerItems">
                     <i onClick={this.handleOnClick} className="fas fa-bars" />
                     <Link to="/">
-                        <img className="pokemonTitle"
+                        <img onClick={this.closeDropdown} className="pokemonTitle"
                             src="https://fontmeme.com/permalink/200304/fe08af5a72abf719bf67178557262a8f.png"
                             alt="Title" />
                     </Link>
-                    <Link to="">
+                    <Link to="/favourites/">
                         <img className="pokemonIcon" src={icon} alt="icon" />
                     </Link>
                 </div>
                 {this.state.isOpen &&
-                    <div className="linkDiv" style={{ height: "260px" }}>
+                    <div onClick={this.handleOnClick} className="linkDiv" style={{ height: "260px" }}>
                         <Link className="links" to="/category/red">Red</Link>
                         <Link className="links" to="/category/blue">Blue</Link>
                         <Link className="links" to="/category/green">Green</Link>
