@@ -21,6 +21,13 @@
     width: 2rem;
 } 
 
+.pokeball{
+    width: 100%;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 @media only screen and (min-width: 400px) {
     .cardContainer{
@@ -29,3 +36,4 @@
     
     }  
 }
+
