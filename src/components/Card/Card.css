@@ -8,13 +8,16 @@
    width: 100%;
 }  
 
+h1 {
+    font-size: 15pt;
+}
+
+h6 {
+    margin-bottom: 1.5rem;
+}
 
 .imgStyle{
-<<<<<<< HEAD
     width: 10rem;
-=======
-    width: 7rem;
->>>>>>> master
     display: flex;
     justify-content: center;
 }
@@ -39,13 +42,8 @@
         width: 16rem;
     
     }  
-<<<<<<< HEAD
 
     .imgStyle {
         width: 10rem
     }
 }
-=======
-}
-
->>>>>>> master
