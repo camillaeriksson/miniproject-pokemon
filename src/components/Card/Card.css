@@ -1,6 +1,6 @@
  .cardContainer{
    background: yellow;
-   margin: 1rem;
+   margin: 0.5rem;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -10,7 +10,7 @@
 
 
 .imgStyle{
-    width: 15rem;
+    width: 7rem;
     display: flex;
     justify-content: center;
 }
@@ -21,6 +21,13 @@
     width: 2rem;
 } 
 
+.pokeball{
+    width: 100%;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 @media only screen and (min-width: 400px) {
     .cardContainer{
@@ -29,3 +36,4 @@
     
     }  
 }
+
