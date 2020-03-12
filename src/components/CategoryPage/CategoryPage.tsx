@@ -5,7 +5,7 @@ import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
 interface Props {
-    // color: string
+    //color: string
 }
 
 interface State {
@@ -43,9 +43,13 @@ export default class CategoryPage extends React.Component<Props, State> {
         this.pokemonApi()
     }
 
-    // async componentDidUpdate(prevProps: Props) {
-    //     if (this.props.color !== prevProps.color)
-    // }
+     /* async componentDidUpdate(prevProps: Props) {
+         if (this.props.color !== prevProps.color) {
+             return(
+             <div>{this.props.color}</div>
+             )
+         }
+    } */
     toFavourite(){
         
     }
