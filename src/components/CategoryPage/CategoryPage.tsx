@@ -51,7 +51,7 @@ export default class CategoryPage extends React.Component<Props, State> {
     render() {
         return (
             <ErrorBoundary>
-                <div>
+                <div className="category_container">
                     {
                         this.state.pokemons ? (
                             <div className="containers">
