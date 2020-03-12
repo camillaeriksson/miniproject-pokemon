@@ -10,7 +10,7 @@
 
 
 .imgStyle{
-    width: 15rem;
+    width: 10rem;
     display: flex;
     justify-content: center;
 }
@@ -25,7 +25,11 @@
 @media only screen and (min-width: 400px) {
     .cardContainer{
         margin: 1rem;
-        width: 20%;
+        width: 16rem;
     
     }  
+
+    .imgStyle {
+        width: 10rem
+    }
 }

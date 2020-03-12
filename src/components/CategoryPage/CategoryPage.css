@@ -5,8 +5,12 @@
     justify-content: center;
 }
 
+h1 {
+    font-size: 15pt;
+}
 .category_container {
     position: absolute;
     margin-top: 6rem;
     z-index: 0;
 }
+
