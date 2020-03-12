@@ -18,10 +18,12 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <FavouritePage />
           <Switch>
             <Route path="/category/:color">
               <CategoryPage />
+            </Route>
+            <Route path="/favourites/">
+              <FavouritePage />
             </Route>
             <Route path="/">
               <StartPage />

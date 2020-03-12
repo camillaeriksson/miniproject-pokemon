@@ -43,7 +43,7 @@ class Header extends React.Component<Props, State> {
                             src="https://fontmeme.com/permalink/200304/fe08af5a72abf719bf67178557262a8f.png"
                             alt="Title" />
                     </Link>
-                    <Link to="">
+                    <Link to="/favourites/">
                         <img className="pokemonIcon" src={icon} alt="icon" />
                     </Link>
                 </div>
