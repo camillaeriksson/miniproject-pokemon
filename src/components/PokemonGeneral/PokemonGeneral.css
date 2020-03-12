@@ -1,0 +1,49 @@
+.pokemon_pic {
+    width: 70%;
+    /* border: 6px solid lightblue;
+    background-color: lightcyan; */
+    border: 6px solid yellow;
+    /* background-color: lightyellow; */
+    background: yellow;
+    background: linear-gradient(0deg, orange 0%, rgb(252, 255, 62) 100%);
+    margin: 0.5rem;
+}
+
+.types {
+    margin-top: 0.5rem;
+}
+
+.type {
+    border-radius: 0.6rem;
+    padding: 0.3rem;
+    margin: 0.3rem;
+}
+
+.description {
+    background-color: #e9ecef;
+    width: 90%;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+.description p {
+    margin: 0 !important;
+}
+
+h2 {
+    margin: 1rem 0 0.5rem 0;
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 400px) {
+    .description {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .description {
+        width: 40%;
+    }
+}

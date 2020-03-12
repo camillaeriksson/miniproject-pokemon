@@ -1,0 +1,28 @@
+.profile {
+    margin-bottom: 1rem;
+}
+
+.profile {
+    background-color: #e9ecef;
+    width: 90%;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.profile p {
+    margin: 0;
+}
+
+@media only screen and (min-width: 400px) {
+    .profile {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .profile {
+        width: 40%;
+    }
+}

@@ -1,0 +1,33 @@
+.progress_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    flex-direction: column;
+}
+
+.progress-bar {
+    background-color: red !important;
+}
+
+.progress {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.progress_container p {
+    margin: 0.5rem 0 0 0;
+}
+
+@media only screen and (min-width: 400px) {
+    .progress_container {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .progress_container {
+        width: 40%;
+    }
+}
