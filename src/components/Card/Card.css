@@ -1,6 +1,6 @@
  .cardContainer{
    background: yellow;
-   margin: 1rem;
+   margin: 0.5rem;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -10,7 +10,7 @@
 
 
 .imgStyle{
-    width: 15rem;
+    width: 7rem;
     display: flex;
     justify-content: center;
 }
