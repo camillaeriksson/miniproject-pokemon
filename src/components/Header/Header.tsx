@@ -55,31 +55,56 @@ class Header extends React.Component<Props, State> {
                                 color: "red"
                             }
                         }}>Red</Link>
-                        <Link className="links" to={{
-                            pathname: '/category/red',
-                            state: {
-                                color: "red"
-                            }
-                        }}>Red</Link>
+
                         <Link className="links" to={{
                             pathname: '/category/blue',
                             state: {
                                 color: "blue"
                             }
                         }}>Blue</Link>
+
                         <Link className="links" to={{
-                            pathname: '/category/red',
+                            pathname: '/category/green',
                             state: {
-                                color: "red"
+                                color: "green"
                             }
-                        }}>Red</Link>
+                        }}>Green</Link>
+
                         <Link className="links" to={{
-                            pathname: '/category/red',
+                            pathname: '/category/pink',
                             state: {
-                                color: "red"
+                                color: "pink"
                             }
-                        }}>Red</Link>
-                        
+                        }}>Pink</Link>
+
+                        <Link className="links" to={{
+                            pathname: '/category/yellow',
+                            state: {
+                                color: "yellow"
+                            }
+                        }}>Yellow</Link>
+
+                        <Link className="links" to={{
+                            pathname: '/category/purple',
+                            state: {
+                                color: "purple"
+                            }
+                        }}>Purple</Link>
+
+                        <Link className="links" to={{
+                            pathname: '/category/black',
+                            state: {
+                                color: "black"
+                            }
+                        }}>Black</Link>
+
+                        <Link className="links" to={{
+                            pathname: '/category/white',
+                            state: {
+                                color: "white"
+                            }
+                        }}>White</Link>
+
                     </div>}
             </header>
         )

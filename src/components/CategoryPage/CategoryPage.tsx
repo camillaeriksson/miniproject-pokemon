@@ -5,10 +5,7 @@ import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
-interface Props extends RouteComponentProps {
-
-    //color: string
-}
+interface Props extends RouteComponentProps {}
 
 interface State {
     pokemons:
@@ -20,9 +17,6 @@ interface State {
 }
 
  class CategoryPage extends React.Component<Props, State> {
-    /* readonly categoryName = "green" */
-
-
     constructor(props: Props) {
         super(props)
 
