@@ -50,7 +50,7 @@ export default class CategoryPage extends React.Component<Props, State> {
             )
         }
    } */
-    toFavourite() {
+    addFavourite() {
 
     }
 

@@ -36,7 +36,7 @@ export default class FavouritePage extends React.Component<Props, State> {
                 return (
                     <div className="favourite_container">
                         <h1>My Favourites</h1>
-                        <h2>{this.state.favouritePokemon}</h2>
+                        <h4>{this.state.favouritePokemon}</h4>
                         
                         <Favourite name={this.state.name} pokemonId={this.state.name} addPokemon={this.addFavourite}/>
                     </div> 
