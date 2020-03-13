@@ -5,7 +5,7 @@ import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
 interface Props {
-    //color: string
+    color: string
 }
 
 interface State {
@@ -18,7 +18,7 @@ interface State {
 }
 
 export default class CategoryPage extends React.Component<Props, State> {
-    readonly categoryName = "green"
+    readonly categoryName = this.props.color
 
     constructor(props: Props) {
         super(props)

@@ -13,16 +13,16 @@ import ErrorBoundary from "../Errorboundry/errorboundry";
 import CategoryPage from '../CategoryPage/CategoryPage';
 import FavouritePage from '../FavouritePage/FavouritePage';
 
-  const Color = () => {
+  /* const Color = () => {
   const { pathname } = useLocation();
   
   return (
     <CategoryPage>
-      <h1>Contact</h1>
+      <h1>Color</h1>
       <p>Current URL: {pathname}</p>
     </CategoryPage>
     )
-    };
+    }; */
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/category/:color">
-              <CategoryPage/>
+              <CategoryPage {}/>
             </Route>
             <Route path="/favourites/">
               <FavouritePage />
