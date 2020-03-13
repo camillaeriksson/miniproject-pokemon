@@ -3,6 +3,7 @@ import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
+import { ThemeConsumer } from 'styled-components';
 
 interface Props {
     // color: string
@@ -26,7 +27,6 @@ export default class CategoryPage extends React.Component<Props, State> {
 
         this.state = {
             pokemons: [],
-
         }
     }
 
@@ -37,7 +37,22 @@ export default class CategoryPage extends React.Component<Props, State> {
         const category = res.data.results.find((catObj: any) => catObj.name === this.categoryName)
         const res2 = await axios.get(category.url)
 
+        console.log(res2.data.pokemon_species)
+
         this.setState({ pokemons: res2.data.pokemon_species })
+
+        const PokemonData = await (await axios.all(res2.data.pokemon_species)).map(pokemon => {
+            const pokemonRecord = pokemon.url)
+    }
+
+    getPokemon(url) {
+        return new Promise((resolve, reject) => {
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    resolve(data);
+                })
+        })
     }
 
     async componentDidMount() {
