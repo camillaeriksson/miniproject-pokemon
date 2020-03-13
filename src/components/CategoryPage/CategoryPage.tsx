@@ -1,11 +1,13 @@
 import React from 'react'
+import { withRouter, RouteComponentProps } from "react-router-dom"
 import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
-interface Props {
-    color: string
+interface Props extends RouteComponentProps {
+
+    //color: string
 }
 
 interface State {
@@ -17,8 +19,9 @@ interface State {
     }[]
 }
 
-export default class CategoryPage extends React.Component<Props, State> {
-    readonly categoryName = this.props.color
+ class CategoryPage extends React.Component<Props, State> {
+    /* readonly categoryName = "green" */
+
 
     constructor(props: Props) {
         super(props)
@@ -32,8 +35,10 @@ export default class CategoryPage extends React.Component<Props, State> {
     async pokemonApi() {
         const getPokemonCategoryURL = "https://pokeapi.co/api/v2/pokemon-color"
         const res = await axios.get(getPokemonCategoryURL)
+        const {color}: any = this.props.location.state
+     
 
-        const category = res.data.results.find((catObj: any) => catObj.name === this.categoryName)
+        const category = res.data.results.find((catObj: any) => catObj.name === color)
         const res2 = await axios.get(category.url)
 
         this.setState({ pokemons: res2.data.pokemon_species })
@@ -43,7 +48,15 @@ export default class CategoryPage extends React.Component<Props, State> {
         this.pokemonApi()
     }
 
-     /* async componentDidUpdate(prevProps: Props) {
+    componentWillReceiveProps(nextProps: Props){
+        this.pokemonApi()
+    }
+     
+    
+    
+    
+    
+    /* async componentDidUpdate(prevProps: Props) {
          if (this.props.color !== prevProps.color) {
              return(
              <div>{this.props.color}</div>
@@ -75,3 +88,6 @@ export default class CategoryPage extends React.Component<Props, State> {
         )
     }
 }
+
+
+export default withRouter(CategoryPage)

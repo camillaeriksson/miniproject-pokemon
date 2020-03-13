@@ -49,11 +49,37 @@ class Header extends React.Component<Props, State> {
                 </div>
                 {this.state.isOpen &&
                     <div onClick={this.handleOnClick} className="linkDiv" style={{ height: "260px" }}>
-                        <Link className="links" to="/category/red">Red</Link>
-                        <Link className="links" to="/category/blue">Blue</Link>
-                        <Link className="links" to="/category/green">Green</Link>
-                        <Link className="links" to="/category/pink">Pink</Link>
-                        <Link className="links" to="/category/yellow">Yellow</Link>
+                        <Link className="links" to={{
+                            pathname: '/category/red',
+                            state: {
+                                color: "red"
+                            }
+                        }}>Red</Link>
+                        <Link className="links" to={{
+                            pathname: '/category/red',
+                            state: {
+                                color: "red"
+                            }
+                        }}>Red</Link>
+                        <Link className="links" to={{
+                            pathname: '/category/blue',
+                            state: {
+                                color: "blue"
+                            }
+                        }}>Blue</Link>
+                        <Link className="links" to={{
+                            pathname: '/category/red',
+                            state: {
+                                color: "red"
+                            }
+                        }}>Red</Link>
+                        <Link className="links" to={{
+                            pathname: '/category/red',
+                            state: {
+                                color: "red"
+                            }
+                        }}>Red</Link>
+                        
                     </div>}
             </header>
         )
