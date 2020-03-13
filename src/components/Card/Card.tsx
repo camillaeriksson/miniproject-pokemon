@@ -34,23 +34,16 @@ export default class Card extends React.Component<Props, State> {
         });
     }
 
-
-    async componentDidMount() {
+    render() {
         const pokemonId = this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonId}.png?raw=true`
-        this.setState({
-            imgUrl,
-        })
-    }
-
-    render() {
         const theImgs = this.state.liked ? <img className="pokeLike" src={liked} alt="Noliked" /> : <img className="pokeLike" src={unLike} alt="liked" />
         return (
             <div className="cardContainer">
                 <div className="pokeball">
                     <h2 onClick={this.handleLike}>
                         {theImgs}</h2></div>
-                <img className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
+                <img className="imgStyle" src={imgUrl} alt="A pokemon" />
                 <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
                 <h6>Index:{this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)}</h6>
             </div>
