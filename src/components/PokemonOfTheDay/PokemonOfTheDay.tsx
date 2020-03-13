@@ -160,6 +160,8 @@ export default class PokemonOfTheDay extends React.Component<Props, State> {
 
         const pokemonSpeciesUrl = "https://pokeapi.co/api/v2/pokemon-species/" + pokemonIndex
 
+        console.log(res.data.types)
+
         await axios.get<SpeciesResults>(pokemonSpeciesUrl).then(res => {
             let description = ""
             res.data.flavor_text_entries.some(flavor => {

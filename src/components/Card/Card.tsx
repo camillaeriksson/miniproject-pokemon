@@ -16,7 +16,9 @@ interface State {
     imgUrl: string,
     liked: boolean,
     showModal: boolean,
-    pokemonId: string
+    pokemonId: string,
+    types: string[],
+    description: string
 }
 
 export default class Card extends React.Component<Props, State> {
@@ -29,7 +31,9 @@ export default class Card extends React.Component<Props, State> {
             imgUrl: "",
             liked: false,
             showModal: false,
-            pokemonId: ""
+            pokemonId: "",
+            types: ["fire"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar ultrices quam vitae interdum. Integer dolor ligula, gravida ac urna ut, suscipit consectetur nisi."
         }
 
         this.handleLike = this.handleLike.bind(this);
@@ -54,7 +58,10 @@ export default class Card extends React.Component<Props, State> {
         if (this.state.showModal) {
             return (
                 <Modal>
-                    <PokemonGeneral pokemonName={this.props.name} pokemonIndex={parseInt(this.props.pokemonId)} imgUrl={this.state.imgUrl} />
+                    <div className="modal_container" onClick={this.toggleModal}>
+                        <PokemonGeneral pokemonName={this.props.name} pokemonIndex={parseInt(this.props.pokemonId)}
+                            imgUrl={this.state.imgUrl} types={this.state.types} description={this.state.description} />
+                    </div>
                 </Modal >
             )
         }
