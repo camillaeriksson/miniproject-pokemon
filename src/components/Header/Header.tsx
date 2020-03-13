@@ -44,11 +44,11 @@ class Header extends React.Component<Props, State> {
                             alt="Title" />
                     </Link>
                     <Link to="/favourites/">
-                        <img className="pokemonIcon" src={icon} alt="icon" />
+                        <img onClick={this.closeDropdown} className="pokemonIcon" src={icon} alt="icon" />
                     </Link>
                 </div>
                 {this.state.isOpen &&
-                    <div onClick={this.handleOnClick} className="linkDiv" style={{ height: "260px" }}>
+                    <div onClick={this.handleOnClick} className="linkDiv" style={{ height: "320px" }}>
                         <Link className="links" to={{
                             pathname: '/category/red',
                             state: {

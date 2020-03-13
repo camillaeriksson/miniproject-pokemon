@@ -34,15 +34,6 @@ export default class Card extends React.Component<Props, State> {
         });
     }
 
-
-    async componentDidMount() {
-        /* const pokemonId = this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)
-        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonId}.png?raw=true`
-        this.setState({
-            imgUrl,
-        }) */
-    }
-
     render() {
         const pokemonId = this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonId}.png?raw=true`
