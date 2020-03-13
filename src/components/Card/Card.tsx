@@ -52,7 +52,7 @@ export default class Card extends React.Component<Props, State> {
                         {theImgs}</h2></div>
                 <img className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
                 <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
-                <h1>Index:{this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)}</h1>
+                <h6>Index:{this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)}</h6>
             </div>
         )
     }

@@ -6,10 +6,12 @@ import {
   BrowserRouter,
   Switch,
   Route,
+  useParams
 } from "react-router-dom";
 import ErrorBoundary from "../Errorboundry/errorboundry";
 import CategoryPage from '../CategoryPage/CategoryPage';
 import FavouritePage from '../FavouritePage/FavouritePage';
+
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/category/:color">
-              <CategoryPage />
+              <CategoryPage/>
             </Route>
             <Route path="/favourites/">
               <FavouritePage />
