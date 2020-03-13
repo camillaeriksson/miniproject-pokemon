@@ -6,7 +6,7 @@ import liked from "./pokemon.png"
 interface Props {
     name: string,
     pokemonId: string,
-    handleFavourite: () => void
+    addPokemon: (id:string) => void
 }
 
 interface State {
@@ -48,7 +48,7 @@ export default class Card extends React.Component<Props, State> {
         return (
             <div className="cardContainer">
                 <div className="pokeball">
-                    <h2 onClick={this.handleLike && this.props.handleFavourite}>
+                    <h2 onClick={this.handleLike}>
                         {theImgs}</h2></div>
                 <img className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
                 <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
@@ -56,4 +56,16 @@ export default class Card extends React.Component<Props, State> {
             </div>
         )
     }
+}
+export function Favourite(props: Props, state: State) {
+    const handleFavourite=(e:any)=>{
+        e.preventDefault();
+        props.addPokemon('Pokémon');
+    }
+    return (
+        <div>
+            <button onClick={handleFavourite}>Add Pokémon</button> 
+            <h1>{handleFavourite}</h1>
+        </div>
+    )
 }

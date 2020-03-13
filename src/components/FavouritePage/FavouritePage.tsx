@@ -1,6 +1,6 @@
 import React from 'react'
 import './FavouritePage.css'
-import Card from '../Card/Card'
+import { Favourite } from '../Card/Card'
 import axios from 'axios'
 
 
@@ -27,12 +27,9 @@ export default class FavouritePage extends React.Component<Props, State> {
 
     }
    
-    addFavourite(){
-        this.setState({
-            value: 'Pokémon'
-        })
-       
-        }
+    addFavourite=(data:any)=>{
+        this.setState({value: data});
+    }
     render() {
         const fav = this.state.favouritePokemon.push(this.state.value)
              {
@@ -41,7 +38,7 @@ export default class FavouritePage extends React.Component<Props, State> {
                         <h1>My Favourites</h1>
                         <h2>{this.state.favouritePokemon}</h2>
                         
-                        <Card name={this.state.name} pokemonId={this.state.name} handleFavourite={this.addFavourite}/>
+                        <Favourite name={this.state.name} pokemonId={this.state.name} addPokemon={this.addFavourite}/>
                     </div> 
                 )
             }
