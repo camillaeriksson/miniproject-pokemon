@@ -16,7 +16,7 @@ interface State {
     imgUrl: string,
     liked: boolean,
     showModal: boolean,
-    pokemonId: string,
+    pokemonId: number,
     types: string[],
     description: string
 }
@@ -31,7 +31,7 @@ export default class Card extends React.Component<Props, State> {
             imgUrl: "",
             liked: false,
             showModal: false,
-            pokemonId: "",
+            pokemonId: 0,
             types: ["fire"],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar ultrices quam vitae interdum. Integer dolor ligula, gravida ac urna ut, suscipit consectetur nisi."
         }
@@ -46,7 +46,8 @@ export default class Card extends React.Component<Props, State> {
     }
 
     async componentDidMount() {
-        const pokemonId = this.props.pokemonId.slice(42, this.props.pokemonId.length - 1)
+        const pokemonId = Number(this.props.pokemonId.slice(42, this.props.pokemonId.length - 1))
+
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonId}.png?raw=true`
         this.setState({
             imgUrl,
@@ -59,7 +60,7 @@ export default class Card extends React.Component<Props, State> {
             return (
                 <Modal>
                     <div className="modal_container" onClick={this.toggleModal}>
-                        <PokemonGeneral pokemonName={this.props.name} pokemonIndex={parseInt(this.props.pokemonId)}
+                        <PokemonGeneral pokemonName={this.props.name} pokemonIndex={this.state.pokemonId}
                             imgUrl={this.state.imgUrl} types={this.state.types} description={this.state.description} />
                     </div>
                 </Modal >
