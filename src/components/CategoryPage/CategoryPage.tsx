@@ -1,13 +1,12 @@
 import React from 'react'
+import { withRouter, RouteComponentProps } from "react-router-dom"
 import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 import { ThemeConsumer } from 'styled-components';
 
-interface Props {
-    // color: string
-}
+interface Props extends RouteComponentProps { }
 
 interface State {
     pokemons:
@@ -19,9 +18,7 @@ interface State {
 
 }
 
-export default class CategoryPage extends React.Component<Props, State> {
-    readonly categoryName = "green"
-
+class CategoryPage extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
 
@@ -33,36 +30,27 @@ export default class CategoryPage extends React.Component<Props, State> {
     async pokemonApi() {
         const getPokemonCategoryURL = "https://pokeapi.co/api/v2/pokemon-color"
         const res = await axios.get(getPokemonCategoryURL)
+        const { color }: any = this.props.location.state
 
-        const category = res.data.results.find((catObj: any) => catObj.name === this.categoryName)
+
+        const category = res.data.results.find((catObj: any) => catObj.name === color)
         const res2 = await axios.get(category.url)
 
         console.log(res2.data.pokemon_species)
 
         this.setState({ pokemons: res2.data.pokemon_species })
-
-        const PokemonData = await (await axios.all(res2.data.pokemon_species)).map(pokemon => {
-            const pokemonRecord = pokemon.url)
-    }
-
-    getPokemon(url) {
-        return new Promise((resolve, reject) => {
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    resolve(data);
-                })
-        })
     }
 
     async componentDidMount() {
         this.pokemonApi()
     }
 
-    // async componentDidUpdate(prevProps: Props) {
-    //     if (this.props.color !== prevProps.color)
-    // }
-    toFavourite() {
+    componentWillReceiveProps(nextProps: Props) {
+        this.pokemonApi()
+    }
+
+
+    addFavourite() {
 
     }
 
@@ -74,7 +62,7 @@ export default class CategoryPage extends React.Component<Props, State> {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} handleFavourite={this.toFavourite} />
+                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.addFavourite} />
                                 ))}
                             </div>
                         ) : (
@@ -86,3 +74,6 @@ export default class CategoryPage extends React.Component<Props, State> {
         )
     }
 }
+
+
+export default withRouter(CategoryPage)

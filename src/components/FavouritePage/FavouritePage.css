@@ -1,5 +1,10 @@
 .favourite_container {
     position: absolute;
     margin-top: 7rem;
-    
+    background: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
