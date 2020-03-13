@@ -5,7 +5,7 @@ import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
 interface Props {
-    // color: string
+    //color: string
 }
 
 interface State {
@@ -43,11 +43,15 @@ export default class CategoryPage extends React.Component<Props, State> {
         this.pokemonApi()
     }
 
-    // async componentDidUpdate(prevProps: Props) {
-    //     if (this.props.color !== prevProps.color)
-    // }
-    addFavourite(){
-        
+    /* async componentDidUpdate(prevProps: Props) {
+        if (this.props.color !== prevProps.color) {
+            return(
+            <div>{this.props.color}</div>
+            )
+        }
+   } */
+    toFavourite() {
+
     }
 
     render() {
@@ -58,7 +62,7 @@ export default class CategoryPage extends React.Component<Props, State> {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.addFavourite}/>
+                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.addFavourite} />
                                 ))}
                             </div>
                         ) : (
