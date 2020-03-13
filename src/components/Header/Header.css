@@ -13,8 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    height: 6rem;
 }
 
 .links {
@@ -39,9 +37,9 @@
 }
 
 .pokemonIcon {
-    height: 4rem;
-    width: 4rem;
-    padding: 1rem;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.8rem;
 }
 
 .pokemonTitle {
@@ -49,6 +47,17 @@
     height: 6rem;
     padding: 1rem;
 }
+
+@media only screen and (min-width: 900px) {
+    .pokemonIcon {
+        margin-right: 4rem;
+    }
+
+    .fas {
+        margin-left: 4rem;
+    }
+}
+
 
 /* colors:
 purple: #9893FF; */

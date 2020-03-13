@@ -1,6 +1,6 @@
  .cardContainer{
    background: yellow;
-   margin: 1rem;
+   margin: 0.5rem;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -8,9 +8,16 @@
    width: 100%;
 }  
 
+h1 {
+    font-size: 15pt;
+}
+
+h6 {
+    margin-bottom: 1.5rem;
+}
 
 .imgStyle{
-    width: 15rem;
+    width: 10rem;
     display: flex;
     justify-content: center;
 }
@@ -21,11 +28,22 @@
     width: 2rem;
 } 
 
+.pokeball{
+    width: 100%;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 @media only screen and (min-width: 400px) {
     .cardContainer{
         margin: 1rem;
-        width: 20%;
+        width: 16rem;
     
     }  
+
+    .imgStyle {
+        width: 10rem
+    }
 }
