@@ -5,7 +5,13 @@ import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
-interface Props extends RouteComponentProps {}
+interface Props extends RouteComponentProps {
+    
+}
+
+interface Props {
+    addToFavorite: (pokemon: string) => void
+}
 
 interface State {
     pokemons:
@@ -45,11 +51,6 @@ interface State {
     componentWillReceiveProps(nextProps: Props){
         this.pokemonApi()
     }
-     
-
-    addFavourite() {
-
-    }
 
     render() {
         return (
@@ -59,7 +60,7 @@ interface State {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.addFavourite} />
+                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.props.addToFavorite} />
                                 ))}
                             </div>
                         ) : (

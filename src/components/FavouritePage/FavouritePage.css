@@ -1,6 +1,6 @@
-.favourite_container {
+.favorite_container {
     position: absolute;
-    margin-top: 7rem;
+    margin-top:7rem;
     background: yellow;
     display: flex;
     justify-content: center;
