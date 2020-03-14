@@ -6,10 +6,6 @@ import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 
 interface Props extends RouteComponentProps {
-    
-}
-
-interface Props {
     addToFavorite: (pokemon: string) => void
 }
 

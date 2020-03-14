@@ -1,5 +1,5 @@
 import React from 'react'
-import './FavouritePage.css'
+import './FavoritePage.css'
 import PokemonGeneral from '../PokemonGeneral/PokemonGeneral';
 
 

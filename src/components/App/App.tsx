@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import ErrorBoundary from "../Errorboundry/errorboundry";
 import CategoryPage from '../CategoryPage/CategoryPage';
-import FavouritePage from '../FavouritePage/FavouritePage';
+import FavoritePage from '../FavoritePage/FavoritePage';
 interface Props {
     
 }
@@ -44,7 +44,7 @@ render () {
               <CategoryPage addToFavorite={this.addToFavorite} />
             </Route>
             <Route path="/favourites/">
-              <FavouritePage favoritePokemons={this.state.favoritePokemons} />
+              <FavoritePage favoritePokemons={this.state.favoritePokemons} />
             </Route>
             <Route path="/">
               <StartPage />
