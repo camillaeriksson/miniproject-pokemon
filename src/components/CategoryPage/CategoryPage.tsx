@@ -15,6 +15,10 @@ interface State {
         url: string,
         imgUrl: string,
     }[],
+    selectedPokemon: {
+        name: string,
+        url: string
+    }
 
 }
 
@@ -24,6 +28,10 @@ class CategoryPage extends React.Component<Props, State> {
 
         this.state = {
             pokemons: [],
+            selectedPokemon: {
+                name: "",
+                url: ""
+            }
         }
     }
 
@@ -32,11 +40,8 @@ class CategoryPage extends React.Component<Props, State> {
         const res = await axios.get(getPokemonCategoryURL)
         const { color }: any = this.props.location.state
 
-
         const category = res.data.results.find((catObj: any) => catObj.name === color)
         const res2 = await axios.get(category.url)
-
-        console.log(res2.data.pokemon_species)
 
         this.setState({ pokemons: res2.data.pokemon_species })
     }
@@ -55,6 +60,9 @@ class CategoryPage extends React.Component<Props, State> {
     }
 
     render() {
+        // if (this.state.selectedPokemon) {
+        //     return <Card pokemon={this.state.selectedPokemon} />
+        // }
         return (
             <ErrorBoundary>
                 <div className="category_container">
@@ -62,7 +70,9 @@ class CategoryPage extends React.Component<Props, State> {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.addFavourite} />
+                                    // Lista av alla pokemon,. Onclick= sätt state.selectedpokemon till det valda pokemonet
+                                    // <div onClick={() => { this.setState({ selectedPokemon: pokemon }) }} >{pokemon.name}</div>
+                                    <Card name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.addFavourite} />
                                 ))}
                             </div>
                         ) : (
