@@ -20,7 +20,7 @@ interface State {
     }[]
 }
 
- class CategoryPage extends React.Component<Props, State> {
+class CategoryPage extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
 
@@ -33,8 +33,8 @@ interface State {
     async pokemonApi() {
         const getPokemonCategoryURL = "https://pokeapi.co/api/v2/pokemon-color"
         const res = await axios.get(getPokemonCategoryURL)
-        const {color}: any = this.props.location.state
-     
+        const { color }: any = this.props.location.state
+
 
         const category = res.data.results.find((catObj: any) => catObj.name === color)
         const res2 = await axios.get(category.url)
@@ -46,7 +46,7 @@ interface State {
         this.pokemonApi()
     }
 
-    componentWillReceiveProps(nextProps: Props){
+    componentWillReceiveProps(nextProps: Props) {
         this.pokemonApi()
     }
 
@@ -58,9 +58,7 @@ interface State {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Suspense fallback={ Spinner }>
-                                        <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.props.addToFavorite} /> 
-                                    </Suspense>
+                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.props.addToFavorite} />
                                 ))}
                             </div>
                         ) : (
