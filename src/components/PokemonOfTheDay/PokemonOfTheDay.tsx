@@ -7,7 +7,7 @@ import PokemonStats from "../PokemonStats/PokemonStats"
 import PokemonProfile from "../PokemonProfile/PokemonProfile"
 import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 
-interface SpeciesResults {
+export interface SpeciesResults {
     flavor_text_entries: Array<{
         flavor_text: string,
         language: {
@@ -21,7 +21,7 @@ interface SpeciesResults {
     hatch_counter: number
 }
 
-interface Results {
+export interface Results {
     name: string,
     height: string,
     weight: string,
