@@ -4,8 +4,12 @@ import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
+<<<<<<< HEAD
 import Spinner from "../Spinner/Spinner";
 
+=======
+import { ThemeConsumer } from 'styled-components';
+>>>>>>> master
 
 interface Props extends RouteComponentProps {
     addToFavorite: (pokemon: string) => void
@@ -17,7 +21,12 @@ interface State {
         name: string,
         url: string,
         imgUrl: string,
-    }[]
+    }[],
+    selectedPokemon: {
+        name: string,
+        url: string
+    }
+
 }
 
 class CategoryPage extends React.Component<Props, State> {
@@ -26,7 +35,10 @@ class CategoryPage extends React.Component<Props, State> {
 
         this.state = {
             pokemons: [],
-
+            selectedPokemon: {
+                name: "",
+                url: ""
+            }
         }
     }
 
@@ -34,7 +46,6 @@ class CategoryPage extends React.Component<Props, State> {
         const getPokemonCategoryURL = "https://pokeapi.co/api/v2/pokemon-color"
         const res = await axios.get(getPokemonCategoryURL)
         const { color }: any = this.props.location.state
-
 
         const category = res.data.results.find((catObj: any) => catObj.name === color)
         const res2 = await axios.get(category.url)
@@ -51,6 +62,9 @@ class CategoryPage extends React.Component<Props, State> {
     }
 
     render() {
+        // if (this.state.selectedPokemon) {
+        //     return <Card pokemon={this.state.selectedPokemon} />
+        // }
         return (
             <ErrorBoundary>
                 <div className="category_container">
@@ -58,13 +72,14 @@ class CategoryPage extends React.Component<Props, State> {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
-                                    <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.props.addToFavorite} />
+                                    // Lista av alla pokemon,. Onclick= sätt state.selectedpokemon till det valda pokemonet
+                                    // <div onClick={() => { this.setState({ selectedPokemon: pokemon }) }} >{pokemon.name}</div>
+                                    <Card name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
                                 ))}
                             </div>
                         ) : (
                                 <h1>loading...</h1>
                             )
-
                     }
                 </div>
             </ErrorBoundary>
