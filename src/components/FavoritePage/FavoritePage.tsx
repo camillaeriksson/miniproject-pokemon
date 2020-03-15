@@ -10,11 +10,18 @@ interface Props {
 interface State {
 }
 
+
 export default class FavoritePage extends React.Component<Props, State> {
 
     constructor(props: Props) {
         super(props)
 
+    }
+
+    private capitalizeWord = (str: string) => {
+        if (str.length === 0) return "";
+        str = str.replace("-", " ")
+        return str[0].toUpperCase() + str.slice(1);
     }
 
     render() {
@@ -27,7 +34,7 @@ export default class FavoritePage extends React.Component<Props, State> {
                         {this.props.favoritePokemons.map(pokemon => (
                             <>
                                 <img key={pokemon.index} className="pokemon" src={pokemon.imgUrl} alt="A pokemon" />
-                                <h1>{pokemon.name}</h1>
+                                <h1>{this.capitalizeWord(pokemon.name)}</h1>
                             </>
                         ))}
                     </div>
