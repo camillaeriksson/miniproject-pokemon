@@ -11,12 +11,29 @@ import {
 } from "react-router-dom";
 import ErrorBoundary from "../Errorboundry/errorboundry";
 import CategoryPage from '../CategoryPage/CategoryPage';
-import FavouritePage from '../FavouritePage/FavouritePage';
+import FavoritePage from '../FavoritePage/FavoritePage';
+interface Props {
+    
+}
+interface State {
+    favoritePokemons: any[],
+    
+}
 
- 
+export default class App extends React.Component<Props, State>{
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+        favoritePokemons: [],
+        
+    };
+}
 
+addToFavorite = (pokemon: string) => {
+  this.setState({ favoritePokemons: [...this.state.favoritePokemons, pokemon]})
+}
 
-function App() {
+render () {
   return (
     <ErrorBoundary>
       <BrowserRouter>
@@ -24,10 +41,10 @@ function App() {
           <Header />
           <Switch>
             <Route path="/category/:color">
-              <CategoryPage/>
+              <CategoryPage addToFavorite={this.addToFavorite} />
             </Route>
             <Route path="/favourites/">
-              <FavouritePage />
+              <FavoritePage favoritePokemons={this.state.favoritePokemons} />
             </Route>
             <Route path="/">
               <StartPage />
@@ -38,5 +55,4 @@ function App() {
     </ErrorBoundary>
   );
 }
-
-export default App;
+}
