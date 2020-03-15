@@ -6,7 +6,9 @@ import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 import { ThemeConsumer } from 'styled-components';
 
-interface Props extends RouteComponentProps { }
+interface Props extends RouteComponentProps {
+    addToFavorite: (pokemon: string) => void
+}
 
 interface State {
     pokemons:
@@ -54,11 +56,6 @@ class CategoryPage extends React.Component<Props, State> {
         this.pokemonApi()
     }
 
-
-    addFavourite() {
-
-    }
-
     render() {
         // if (this.state.selectedPokemon) {
         //     return <Card pokemon={this.state.selectedPokemon} />
@@ -72,7 +69,7 @@ class CategoryPage extends React.Component<Props, State> {
                                 {this.state.pokemons.map(pokemon => (
                                     // Lista av alla pokemon,. Onclick= sätt state.selectedpokemon till det valda pokemonet
                                     // <div onClick={() => { this.setState({ selectedPokemon: pokemon }) }} >{pokemon.name}</div>
-                                    <Card name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.addFavourite} />
+                                    <Card name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
                                 ))}
                             </div>
                         ) : (

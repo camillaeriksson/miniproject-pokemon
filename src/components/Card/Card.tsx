@@ -220,13 +220,15 @@ export default class Card extends React.Component<Props, State> {
         const pokemonIndex = this.props.pokemonUrl.slice(42, this.props.pokemonUrl.length - 1)
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`
         const theImgs = this.state.liked ? <img className="pokeLike" src={liked} alt="Noliked" /> : <img className="pokeLike" src={unLike} alt="liked" />
+
         return (
             <>
-                <div onClick={this.toggleModal} className="cardContainer">
+                <div className="cardContainer">
                     <div className="pokeball">
-                        <h2 onClick={this.handleLike}>
-                            {theImgs}</h2></div>
-                    <img className="imgStyle" src={imgUrl} alt="A pokemon" />
+                        <h2 onClick={() => this.handleLike && this.props.addPokemon(imgUrl)}>
+                            {theImgs}
+                        </h2></div>
+                    <img onClick={this.toggleModal} className="imgStyle" src={imgUrl} alt="A pokemon" />
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
                     <h6>Index:{this.state.pokemonIndex}</h6>
                 </div>
@@ -234,16 +236,4 @@ export default class Card extends React.Component<Props, State> {
             </>
         )
     }
-}
-export function Favourite(props: Props, state: State) {
-    const handleFavourite = (e: any) => {
-        e.preventDefault();
-        props.addPokemon('Pokémon');
-    }
-    return (
-        <div>
-            <button onClick={handleFavourite}>Add Pokémon</button>
-            <h1>{handleFavourite}</h1>
-        </div>
-    )
 }
