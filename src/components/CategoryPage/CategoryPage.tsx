@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { withRouter, RouteComponentProps } from "react-router-dom"
 import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
+import Spinner from "../Spinner/Spinner";
+
 
 interface Props extends RouteComponentProps {}
 
@@ -59,7 +61,9 @@ interface State {
                         this.state.pokemons ? (
                             <div className="containers">
                                 {this.state.pokemons.map(pokemon => (
+                                    <Suspense fallback={ Spinner }>
                                     <Card name={pokemon.name} pokemonId={pokemon.url} addPokemon={this.addFavourite} />
+                                    </Suspense>
                                 ))}
                             </div>
                         ) : (

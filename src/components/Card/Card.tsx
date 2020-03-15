@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import './Card.css'
 import unLike from "./pokeball.png"
 import liked from "./pokemon.png"
+import Spinner from "../Spinner/Spinner"
 
 interface Props {
     name: string,
