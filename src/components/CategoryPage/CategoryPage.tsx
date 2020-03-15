@@ -4,12 +4,9 @@ import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
-<<<<<<< HEAD
 import Spinner from "../Spinner/Spinner";
 
-=======
 import { ThemeConsumer } from 'styled-components';
->>>>>>> master
 
 interface Props extends RouteComponentProps {
     addToFavorite: (pokemon: string) => void
