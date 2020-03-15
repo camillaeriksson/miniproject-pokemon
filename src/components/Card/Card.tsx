@@ -224,8 +224,8 @@ export default class Card extends React.Component<Props, State> {
         return (
             <>
                 <div className="cardContainer">
-                    <div className="pokeball">
-                        <h2 onClick={() => this.handleLike && this.props.addPokemon(imgUrl)}>
+                    <div className="pokeball" onClick={this.handleLike}>
+                        <h2 onClick={() => this.props.addPokemon(imgUrl)}>
                             {theImgs}
                         </h2></div>
                     <img onClick={this.toggleModal} className="imgStyle" src={imgUrl} alt="A pokemon" />
