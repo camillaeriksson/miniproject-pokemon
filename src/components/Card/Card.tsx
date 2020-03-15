@@ -4,12 +4,15 @@ import unLike from "./pokeball.png"
 import liked from "./pokemon.png"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
-import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 import axios from 'axios'
+
+import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 import PokemonStats from "../PokemonStats/PokemonStats"
 import PokemonProfile from "../PokemonProfile/PokemonProfile"
-import { SpeciesResults } from "../PokemonOfTheDay/PokemonOfTheDay"
-import { Results } from "../PokemonOfTheDay/PokemonOfTheDay"
+
+import { State } from "../Interfaces"
+import { SpeciesResults } from "../Interfaces"
+import { Results } from "../Interfaces"
 
 import { Pokemon } from "../App/App";
 
@@ -19,36 +22,12 @@ interface Props {
     addPokemon: (pokemon: Pokemon) => void
 }
 
-interface State {
-    imgUrl: string,
-    liked: boolean,
-    showModal: boolean,
-    pokemonIndex: number,
-    types: string[],
-    description: string,
-    pokemonUrl: string,
-    catchRate: number,
-    hatchSteps: number,
-    eggGroups: string,
-    height: string,
-    weight: string,
-    abilities: string[],
-    evs: string,
-    stats: {
-        hp: number,
-        attack: number,
-        defense: number,
-        speed: number,
-        specialAttack: number,
-        specialDefense: number
-    }
-}
 
 export default class Card extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-
         this.state = {
+            pokemonName: "",
             imgUrl: "",
             liked: false,
             showModal: false,
@@ -72,7 +51,6 @@ export default class Card extends React.Component<Props, State> {
                 specialDefense: 0
             }
         }
-
         this.handleLike = this.handleLike.bind(this);
     }
 

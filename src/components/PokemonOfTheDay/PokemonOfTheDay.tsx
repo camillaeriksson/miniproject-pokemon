@@ -3,78 +3,24 @@ import "./PokemonOfTheDay.css"
 import axios from "axios"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
+
 import PokemonStats from "../PokemonStats/PokemonStats"
 import PokemonProfile from "../PokemonProfile/PokemonProfile"
 import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 
-export interface SpeciesResults {
-    flavor_text_entries: Array<{
-        flavor_text: string,
-        language: {
-            name: string
-        }
-    }>,
-    capture_rate: number
-    egg_groups: Array<{
-        name: string
-    }>,
-    hatch_counter: number
-}
-
-export interface Results {
-    name: string,
-    height: string,
-    weight: string,
-    abilities: Array<{
-        ability: {
-            name: string
-        }
-    }>,
-    stats: Array<{
-        stat: {
-            name: string
-        }
-        base_stat: number,
-        effort: number
-    }>,
-    types: Array<{
-        type: {
-            name: string
-        }
-    }>
-}
+import { State } from "../Interfaces"
+import { SpeciesResults } from "../Interfaces"
+import { Results } from "../Interfaces"
 
 interface Props { }
-
-interface State {
-    pokemonName: string,
-    imgUrl: string,
-    pokemonIndex: number,
-    showModal: boolean,
-    types: string[],
-    description: string,
-    height: string,
-    weight: string,
-    eggGroups: string,
-    abilities: string[],
-    evs: string,
-    hatchSteps: number,
-    catchRate: number,
-    stats: {
-        hp: number,
-        attack: number,
-        defense: number,
-        speed: number,
-        specialAttack: number,
-        specialDefense: number
-    }
-}
 
 export default class PokemonOfTheDay extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
             pokemonName: "",
+            pokemonUrl: "",
+            liked: false,
             imgUrl: "",
             pokemonIndex: 0,
             showModal: false,
