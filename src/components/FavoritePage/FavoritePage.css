@@ -1,0 +1,40 @@
+.favorite_container {
+    position: absolute;
+    margin: 3rem 0 0 0;
+    padding: 5rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+}
+.favorite_pokemons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 2rem 0 0 0;
+}
+.pokemon {
+    margin: 0.6rem;
+    width: 20rem;
+    height: 25rem;
+    background-color: #C4C2DB;
+    box-shadow: 0.4rem 0.7rem #888888;
+    border-radius: 0.3rem;
+}
+
+@media only screen and (min-width: 400px) {
+
+    .favorite_pokemons{
+        width: 90%;
+    
+    }
+   
+    .pokemon {
+        width: 15rem;
+        height: 20rem;
+    }
+   }
