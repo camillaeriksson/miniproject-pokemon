@@ -6,8 +6,10 @@ import axios from 'axios'
 import ErrorBoundary from "../Errorboundry/errorboundry";
 import { ThemeConsumer } from 'styled-components';
 
+import { Pokemon } from "../App/App";
+
 interface Props extends RouteComponentProps {
-    addToFavorite: (pokemon: string) => void
+    addToFavorite: (pokemon: Pokemon) => void
 }
 
 interface State {

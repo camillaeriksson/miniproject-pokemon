@@ -11,10 +11,12 @@ import PokemonProfile from "../PokemonProfile/PokemonProfile"
 import { SpeciesResults } from "../PokemonOfTheDay/PokemonOfTheDay"
 import { Results } from "../PokemonOfTheDay/PokemonOfTheDay"
 
+import { Pokemon } from "../App/App";
+
 interface Props {
     name: string,
     pokemonUrl: string,
-    addPokemon: (id: string) => void
+    addPokemon: (pokemon: Pokemon) => void
 }
 
 interface State {
@@ -225,12 +227,12 @@ export default class Card extends React.Component<Props, State> {
             <>
                 <div className="cardContainer">
                     <div className="pokeball">
-                        <h2 onClick={() => this.handleLike && this.props.addPokemon(imgUrl, name)}>
+                        <h2 onClick={() => this.handleLike && this.props.addPokemon({ name: this.props.name, index: Number(pokemonIndex), imgUrl })}>
                             {theImgs}
                         </h2></div>
                     <img onClick={this.toggleModal} className="imgStyle" src={imgUrl} alt="A pokemon" />
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
-                    <h6>Index: {this.state.pokemonIndex}</h6>
+                    <h6>Index:{this.state.pokemonIndex}</h6>
                 </div>
                 {this.modal}
             </>
