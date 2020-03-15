@@ -14,7 +14,7 @@ import { State } from "../Interfaces"
 import { SpeciesResults } from "../Interfaces"
 import { Results } from "../Interfaces"
 
-import { Pokemon } from "../App/App";
+import { Pokemon } from "../App/App"
 
 interface Props {
     name: string,
@@ -51,13 +51,13 @@ export default class Card extends React.Component<Props, State> {
                 specialDefense: 0
             }
         }
-        this.handleLike = this.handleLike.bind(this);
+        this.handleLike = this.handleLike.bind(this)
     }
 
     handleLike() {
         this.setState({
             liked: !this.state.liked
-        });
+        })
     }
 
     async componentDidMount() {
@@ -96,23 +96,23 @@ export default class Card extends React.Component<Props, State> {
         res.data.stats.map(stat => {
             switch (stat.stat.name) {
                 case 'hp':
-                    hp = stat['base_stat'];
-                    break;
+                    hp = stat['base_stat']
+                    break
                 case 'attack':
-                    attack = stat['base_stat'];
-                    break;
+                    attack = stat['base_stat']
+                    break
                 case 'defense':
-                    defense = stat['base_stat'];
-                    break;
+                    defense = stat['base_stat']
+                    break
                 case 'speed':
-                    speed = stat['base_stat'];
-                    break;
+                    speed = stat['base_stat']
+                    break
                 case 'special-attack':
-                    specialAttack = stat['base_stat'];
-                    break;
+                    specialAttack = stat['base_stat']
+                    break
                 case 'special-defense':
-                    specialDefense = stat['base_stat'];
-                    break;
+                    specialDefense = stat['base_stat']
+                    break
             }
         })
 
@@ -166,9 +166,9 @@ export default class Card extends React.Component<Props, State> {
     }
 
     private capitalizeWord = (str: string) => {
-        if (str.length === 0) return "";
+        if (str.length === 0) return ""
         str = str.replace("-", " ")
-        return str[0].toUpperCase() + str.slice(1);
+        return str[0].toUpperCase() + str.slice(1)
     }
 
     private toggleModal = () => {

@@ -1,17 +1,15 @@
-import React, { Fragment } from 'react';
-import './App.css';
-import Header from '../Header/Header';
+import React from 'react'
+import './App.css'
+import Header from '../Header/Header'
 import StartPage from "../StartPage/StartPage"
 import {
   BrowserRouter,
   Switch,
   Route,
-  useParams,
-  useLocation
-} from "react-router-dom";
-import ErrorBoundary from "../Errorboundry/errorboundry";
-import CategoryPage from '../CategoryPage/CategoryPage';
-import FavoritePage from '../FavoritePage/FavoritePage';
+} from "react-router-dom"
+import ErrorBoundary from "../Errorboundry/errorboundry"
+import CategoryPage from '../CategoryPage/CategoryPage'
+import FavoritePage from '../FavoritePage/FavoritePage'
 
 export type Pokemon = {
   name: string,
@@ -19,9 +17,8 @@ export type Pokemon = {
   imgUrl: string,
 }
 
-interface Props {
+interface Props { }
 
-}
 interface State {
   favoritePokemons: Pokemon[],
 
@@ -33,7 +30,7 @@ export default class App extends React.Component<Props, State>{
     this.state = {
       favoritePokemons: [],
 
-    };
+    }
   }
 
   addToFavorite = (pokemon: Pokemon) => {
@@ -61,6 +58,6 @@ export default class App extends React.Component<Props, State>{
           </div>
         </BrowserRouter>
       </ErrorBoundary>
-    );
+    )
   }
 }
