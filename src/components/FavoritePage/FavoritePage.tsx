@@ -22,15 +22,14 @@ export default class FavoritePage extends React.Component<Props, State> {
     render() {
         return (
             <div className="favorite_container">
-                <h1>My Favorite Pokémons</h1>
-                <div className="favorite_pokemons">
                     {this.props.favoritePokemons.map(pokemon => (
-                        <>
-                            <img key={pokemon.index} className="pokemon" src={pokemon.imgUrl} alt="A pokemon" />
-                            <h1>{this.capitalizeWord(pokemon.name)}</h1>
+                        <>  <div className="favorite_card">
+                                <h1>Favorite Pokémon</h1>
+                                <img className="pokemon" key={pokemon.index} src={pokemon.imgUrl} alt="A pokemon" />
+                                <h1>{this.capitalizeWord(pokemon.name)}</h1>
+                            </div>
                         </>
                     ))}
-                </div>
             </div>
         )
     }
