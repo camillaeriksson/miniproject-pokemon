@@ -1,11 +1,7 @@
 .pokemon_pic {
     width: 70%;
-    /* border: 6px solid lightblue;
-    background-color: lightcyan; */
-    border: 6px solid yellow;
-    /* background-color: lightyellow; */
-    background: yellow;
-    background: linear-gradient(0deg, orange 0%, rgb(252, 255, 62) 100%);
+    border: 6px solid #0099FF;
+    background: #A6DBFF;
     margin: 0.5rem;
 }
 

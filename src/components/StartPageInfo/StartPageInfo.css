@@ -1,8 +1,54 @@
 .info_container {
-    height: 20rem;
+    height: 15rem;
     width: 100%;
-    margin-top: 43rem;
-    background-color: coral;
+    margin-top: 40rem;
+    background-color: #A6DBFF;
     position: absolute;
-    margin-bottom: 5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bluePokemonsButton {
+	background-color:#5d8199;
+	border-radius:20px;
+	border:1px solid #0a6dbf;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:3px 11px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+}
+.myButton:hover {
+	background-color:#88b5d4;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.squirtle_pic {
+    width: 11rem;
+    left: -4rem;
+    top: -0.7rem;
+    position: absolute;
+}
+
+.blue_pokemons {
+    width: 10rem;
+    position: absolute;
+    bottom: -0.6rem;
+    right: -0.6rem;
+}
+
+.blue_text {
+    text-align: center;
+    font-size: 1.2rem;
+    width: 10rem;
+    margin: 0 auto;
 }
