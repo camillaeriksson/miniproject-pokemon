@@ -1,13 +1,13 @@
-import React, {Suspense, lazy} from 'react'
+import React from 'react'
 import './App.css'
 import Header from '../Header/Header'
-import StartPage from "../StartPage/StartPage"
+import StartPage from '../StartPage/StartPage'
 import {
   BrowserRouter,
   Switch,
   Route,
-} from "react-router-dom"
-import ErrorBoundary from "../Errorboundry/errorboundry"
+} from 'react-router-dom'
+import ErrorBoundary from '../Errorboundry/errorboundry'
 import CategoryPage from '../CategoryPage/CategoryPage'
 import FavoritePage from '../FavoritePage/FavoritePage'
 
