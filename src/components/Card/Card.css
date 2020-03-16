@@ -6,7 +6,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    box-shadow: 0.4rem 0.7rem #0000001a;
+    box-shadow: 0.4rem 0.4rem 10px #00000046;
 }  
 
 h1 {
