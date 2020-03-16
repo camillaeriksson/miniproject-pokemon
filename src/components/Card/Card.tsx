@@ -5,14 +5,17 @@ import liked from "./pokemon.png"
 import Spinner from "../Spinner/Spinner"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
-import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 import axios from 'axios'
+
+import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 import PokemonStats from "../PokemonStats/PokemonStats"
 import PokemonProfile from "../PokemonProfile/PokemonProfile"
-import { SpeciesResults } from "../PokemonOfTheDay/PokemonOfTheDay"
-import { Results } from "../PokemonOfTheDay/PokemonOfTheDay"
 
-import { Pokemon } from "../App/App";
+import { State } from "../Interfaces"
+import { SpeciesResults } from "../Interfaces"
+import { Results } from "../Interfaces"
+
+import { Pokemon } from "../App/App"
 
 interface Props {
     name: string,
@@ -20,36 +23,12 @@ interface Props {
     addPokemon: (pokemon: Pokemon) => void
 }
 
-interface State {
-    imgUrl: string,
-    liked: boolean,
-    showModal: boolean,
-    pokemonIndex: number,
-    types: string[],
-    description: string,
-    pokemonUrl: string,
-    catchRate: number,
-    hatchSteps: number,
-    eggGroups: string,
-    height: string,
-    weight: string,
-    abilities: string[],
-    evs: string,
-    stats: {
-        hp: number,
-        attack: number,
-        defense: number,
-        speed: number,
-        specialAttack: number,
-        specialDefense: number
-    }
-}
 
 export default class Card extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-
         this.state = {
+            pokemonName: "",
             imgUrl: "",
             liked: false,
             showModal: false,
@@ -73,14 +52,13 @@ export default class Card extends React.Component<Props, State> {
                 specialDefense: 0
             }
         }
-
-        this.handleLike = this.handleLike.bind(this);
+        this.handleLike = this.handleLike.bind(this)
     }
 
     handleLike() {
         this.setState({
             liked: !this.state.liked
-        });
+        })
     }
 
     async componentDidMount() {
@@ -119,23 +97,23 @@ export default class Card extends React.Component<Props, State> {
         res.data.stats.map(stat => {
             switch (stat.stat.name) {
                 case 'hp':
-                    hp = stat['base_stat'];
-                    break;
+                    hp = stat['base_stat']
+                    break
                 case 'attack':
-                    attack = stat['base_stat'];
-                    break;
+                    attack = stat['base_stat']
+                    break
                 case 'defense':
-                    defense = stat['base_stat'];
-                    break;
+                    defense = stat['base_stat']
+                    break
                 case 'speed':
-                    speed = stat['base_stat'];
-                    break;
+                    speed = stat['base_stat']
+                    break
                 case 'special-attack':
-                    specialAttack = stat['base_stat'];
-                    break;
+                    specialAttack = stat['base_stat']
+                    break
                 case 'special-defense':
-                    specialDefense = stat['base_stat'];
-                    break;
+                    specialDefense = stat['base_stat']
+                    break
             }
         })
 
@@ -189,9 +167,9 @@ export default class Card extends React.Component<Props, State> {
     }
 
     private capitalizeWord = (str: string) => {
-        if (str.length === 0) return "";
+        if (str.length === 0) return ""
         str = str.replace("-", " ")
-        return str[0].toUpperCase() + str.slice(1);
+        return str[0].toUpperCase() + str.slice(1)
     }
 
     private toggleModal = () => {

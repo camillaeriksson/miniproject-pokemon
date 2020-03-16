@@ -3,78 +3,24 @@ import "./PokemonOfTheDay.css"
 import axios from "axios"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
+
 import PokemonStats from "../PokemonStats/PokemonStats"
 import PokemonProfile from "../PokemonProfile/PokemonProfile"
 import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 
-export interface SpeciesResults {
-    flavor_text_entries: Array<{
-        flavor_text: string,
-        language: {
-            name: string
-        }
-    }>,
-    capture_rate: number
-    egg_groups: Array<{
-        name: string
-    }>,
-    hatch_counter: number
-}
-
-export interface Results {
-    name: string,
-    height: string,
-    weight: string,
-    abilities: Array<{
-        ability: {
-            name: string
-        }
-    }>,
-    stats: Array<{
-        stat: {
-            name: string
-        }
-        base_stat: number,
-        effort: number
-    }>,
-    types: Array<{
-        type: {
-            name: string
-        }
-    }>
-}
+import { State } from "../Interfaces"
+import { SpeciesResults } from "../Interfaces"
+import { Results } from "../Interfaces"
 
 interface Props { }
-
-interface State {
-    pokemonName: string,
-    imgUrl: string,
-    pokemonIndex: number,
-    showModal: boolean,
-    types: string[],
-    description: string,
-    height: string,
-    weight: string,
-    eggGroups: string,
-    abilities: string[],
-    evs: string,
-    hatchSteps: number,
-    catchRate: number,
-    stats: {
-        hp: number,
-        attack: number,
-        defense: number,
-        speed: number,
-        specialAttack: number,
-        specialDefense: number
-    }
-}
 
 export default class PokemonOfTheDay extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
             pokemonName: "",
+            pokemonUrl: "",
+            liked: false,
             imgUrl: "",
             pokemonIndex: 0,
             showModal: false,
@@ -105,9 +51,9 @@ export default class PokemonOfTheDay extends React.Component<Props, State> {
     }
 
     private capitalizeWord = (str: string) => {
-        if (str.length === 0) return "";
+        if (str.length === 0) return ""
         str = str.replace("-", " ")
-        return str[0].toUpperCase() + str.slice(1);
+        return str[0].toUpperCase() + str.slice(1)
     }
 
     private get modal() {
@@ -195,23 +141,23 @@ export default class PokemonOfTheDay extends React.Component<Props, State> {
         res.data.stats.map(stat => {
             switch (stat.stat.name) {
                 case 'hp':
-                    hp = stat['base_stat'];
-                    break;
+                    hp = stat['base_stat']
+                    break
                 case 'attack':
-                    attack = stat['base_stat'];
-                    break;
+                    attack = stat['base_stat']
+                    break
                 case 'defense':
-                    defense = stat['base_stat'];
-                    break;
+                    defense = stat['base_stat']
+                    break
                 case 'speed':
-                    speed = stat['base_stat'];
-                    break;
+                    speed = stat['base_stat']
+                    break
                 case 'special-attack':
-                    specialAttack = stat['base_stat'];
-                    break;
+                    specialAttack = stat['base_stat']
+                    break
                 case 'special-defense':
-                    specialDefense = stat['base_stat'];
-                    break;
+                    specialDefense = stat['base_stat']
+                    break
             }
         })
 

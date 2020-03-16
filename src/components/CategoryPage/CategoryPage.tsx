@@ -3,29 +3,22 @@ import { withRouter, RouteComponentProps } from "react-router-dom"
 import './CategoryPage.css'
 import Card from '../Card/Card'
 import axios from 'axios'
-import ErrorBoundary from "../Errorboundry/errorboundry";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../Spinner/Spinner"
 
 import { ThemeConsumer } from 'styled-components';
+import ErrorBoundary from "../Errorboundry/errorboundry"
 
-import { Pokemon } from "../App/App";
+import { Pokemon } from "../App/App"
 
 interface Props extends RouteComponentProps {
     addToFavorite: (pokemon: Pokemon) => void
 }
 
 interface State {
-    pokemons:
-    {
+    pokemons: {
         name: string,
         url: string,
-        imgUrl: string,
-    }[],
-    selectedPokemon: {
-        name: string,
-        url: string
-    }
-
+    }[]
 }
 
 class CategoryPage extends React.Component<Props, State> {
@@ -33,11 +26,7 @@ class CategoryPage extends React.Component<Props, State> {
         super(props)
 
         this.state = {
-            pokemons: [],
-            selectedPokemon: {
-                name: "",
-                url: ""
-            }
+            pokemons: []
         }
     }
 
@@ -61,30 +50,21 @@ class CategoryPage extends React.Component<Props, State> {
     }
 
     render() {
-        // if (this.state.selectedPokemon) {
-        //     return <Card pokemon={this.state.selectedPokemon} />
-        // }
         return (
             <ErrorBoundary>
                 <div className="category_container">
-                    {
-                        this.state.pokemons ? (
-                            <div className="containers">
-                                {this.state.pokemons.map(pokemon => (
-                                    // Lista av alla pokemon,. Onclick= sätt state.selectedpokemon till det valda pokemonet
-                                    // <div onClick={() => { this.setState({ selectedPokemon: pokemon }) }} >{pokemon.name}</div>
-                                    <Card name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
-                                ))}
-                            </div>
-                        ) : (
-                                <h1>loading...</h1>
-                            )
-                    }
+                    {this.state.pokemons ? (
+                        <div className="containers">
+                            {this.state.pokemons.map((pokemon, index) => (
+                                <Card key={index} name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
+                            ))}
+                        </div>) : (
+                            <h1>loading...</h1>
+                        )}
                 </div>
             </ErrorBoundary>
         )
     }
 }
-
 
 export default withRouter(CategoryPage)
