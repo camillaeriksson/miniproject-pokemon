@@ -4,6 +4,7 @@ import "./StartPageInfo.css"
 
 import squirtle from "../../assets/squirtle.png"
 import blue_pokemons from "../../assets/blue_pokemons.png"
+import { Link } from "react-router-dom"
 
 interface Props { }
 
@@ -17,7 +18,12 @@ export default class StartPageInfo extends React.Component<Props, State> {
                 <div className="info_container">
                     <img className="squirtle_pic" src={squirtle}></img>
                     <p className="blue_text"><b>Start adding</b> Squirtle and his blue friends to your pokeball!</p>
-                    <button className="bluePokemonsButton">To the blue pokemons</button>
+                    <Link to={{
+                        pathname: '/category/blue',
+                        state: {
+                            color: "blue"
+                        }
+                    }}><button className="bluePokemonsButton">To the blue pokemons</button></Link>
                     <img className="blue_pokemons" src={blue_pokemons}></img>
                 </div>
             </ErrorBoundary>
