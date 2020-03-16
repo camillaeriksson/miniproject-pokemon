@@ -1,40 +1,48 @@
 .favorite_container {
     position: absolute;
-    margin: 3rem 0 0 0;
-    padding: 5rem 0 0 0;
+    margin:  6rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+    height: 5rem;
+    padding: 0.5rem 0
+}
+
+.favorite_card {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-color: #ffffff;
+    background-color: rgba(0, 153, 255, 0.349);
+    box-shadow: 0.4rem 0.4rem 10px #00000046;
+    padding: 2rem 0;
+    margin: 0.5rem;
 }
-.favorite_pokemons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 2rem 0 0 0;
+
+.title {
+    width: 10rem;
+    height: 3rem;
+    padding: 0.5rem;
 }
-.pokemon {
-    margin: 0.6rem;
-    width: 20rem;
-    height: 25rem;
-    background-color: #C4C2DB;
-    box-shadow: 0.4rem 0.7rem #888888;
-    border-radius: 0.3rem;
+
+.pokemon{
+    width: 10rem;
+   
 }
 
 @media only screen and (min-width: 400px) {
 
-    .favorite_pokemons{
-        width: 90%;
+    .favorite_container{
+        padding: 0.5rem 2rem;
     
     }
    
-    .pokemon {
-        width: 15rem;
-        height: 20rem;
+    .favorite_card {
+        margin: 1rem;
+        width: 16rem;
     }
-   }
+}
