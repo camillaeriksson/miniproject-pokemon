@@ -1,5 +1,11 @@
 .linkDiv {
     display: none;
+    justify-content: center;
+}
+
+.styledLinkDiv {
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -59,8 +65,12 @@
 
     .linkDiv {
         display: flex;
+        flex-direction: column;
+    }
+   
+    .styledLinkDiv {
+        display: flex;
         flex-direction: row;
         justify-content: space-evenly;
     }
-   
 }

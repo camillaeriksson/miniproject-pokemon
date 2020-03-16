@@ -49,7 +49,8 @@ class Header extends React.Component<Props, State> {
                     </Link>
                 </div>
                 {this.state.isOpen &&
-                    <div onClick={this.handleOnClick} className="linkDiv" style={{ display: "block" }}>
+                    <div onClick={this.handleOnClick} className="linkDiv" style={{ display: "flex" }}>
+                        <div className="styledLinkDiv">
                         <Link className="links" to={{
                             pathname: '/category/red',
                             state: {
@@ -105,6 +106,7 @@ class Header extends React.Component<Props, State> {
                                 color: "white"
                             }
                         }}>White</Link>
+                        </div>
 
                     </div>}
             </header>
