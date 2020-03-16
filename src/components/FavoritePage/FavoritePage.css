@@ -16,9 +16,15 @@
     flex-direction: column;
     width: 100%;
     background-color: #FF5959;;
-    box-shadow: 0.4rem 0.7rem #0000001a;
-    padding: 3rem 0;
+    box-shadow: 0.4rem 0.4rem 10px #00000046;
+    padding: 2rem 0;
     margin: 0.5rem;
+}
+
+.title {
+    width: 10rem;
+    height: 3rem;
+    padding: 0.5rem;
 }
 
 .pokemon{
@@ -29,7 +35,7 @@
 @media only screen and (min-width: 400px) {
 
     .favorite_container{
-        padding:0 5rem 0 0;
+        padding: 0 5rem;
     
     }
    
@@ -37,4 +43,4 @@
         margin: 1rem;
         width: 16rem;
     }
-   }
+}
