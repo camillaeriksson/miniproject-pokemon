@@ -47,21 +47,32 @@ h1 {
     margin: 1.2rem 0 0.3rem 0 !important; /* To overwrite bootstrap*/
     text-align: center;
     font-weight: bold;
+    font-variant: small-caps;
 }
 
 .heading_desktop {
     display: none;
+    margin-bottom: 2rem;
 }
 
 .heading_and_text {
     display: flex;
-    align-items: center;
     flex-direction: column;
     text-align: center;
+    background-color: white;
+    height: 13rem;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heading_and_text h1 {
     font-size: 2rem;
+}
+
+.heading_and_text p {
+    margin: 0;
 }
 
 @media only screen and (min-width: 490px) {
@@ -80,6 +91,7 @@ h1 {
     .heading_desktop {
         display: block;
         font-size: 25pt;
+        font-variant: small-caps;
     }
 
     .heading_mobile {
@@ -88,5 +100,6 @@ h1 {
 
     .heading_and_text {
         width: 30%;
+        height: 20rem;
     }
   }
