@@ -1,15 +1,17 @@
 import React, { Suspense } from 'react'
 import { withRouter, RouteComponentProps } from "react-router-dom"
 import './CategoryPage.css'
-import Card from '../Card/Card'
+/* import Card from '../Card/Card' */
 import axios from 'axios'
 import Spinner from "../Spinner/Spinner"
+
 
 import { ThemeConsumer } from 'styled-components';
 import ErrorBoundary from "../Errorboundry/errorboundry"
 
 import { Pokemon } from "../App/App"
 
+const Card = React.lazy(() => import('../Card/Card'));
 interface Props extends RouteComponentProps {
     addToFavorite: (pokemon: Pokemon) => void
 }
@@ -55,8 +57,10 @@ class CategoryPage extends React.Component<Props, State> {
                 <div className="category_container">
                     {this.state.pokemons ? (
                         <div className="containers">
-                            {this.state.pokemons.map((pokemon, index) => (
+                            {this.state.pokemons.slice(0,5).map((pokemon, index) => (
+                                <Suspense fallback={<h1>LOADING</h1>}>
                                 <Card key={index} name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
+                                </Suspense>
                             ))}
                         </div>) : (
                             <h1>loading...</h1>
