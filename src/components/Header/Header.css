@@ -23,7 +23,7 @@
 
 .links {
     text-decoration: none;
-    color: black; 
+    color: white; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,6 +34,35 @@
 .links:hover {
     color:#FF5959;
     text-decoration: none;
+}
+
+#red {
+    color: red;
+}
+
+#blue {
+    color: blue;
+}
+
+#green {
+    color: green;
+}
+
+#pink {
+    color: pink;
+}
+
+#yellow {
+    color: yellow;
+}
+#purple {
+    color: purple;
+}
+#black {
+    color: black;
+}
+#white {
+    color: white;
 }
 
 .fas {
