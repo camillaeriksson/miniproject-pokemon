@@ -40,7 +40,7 @@ class Header extends React.Component<Props, State> {
                     <i onClick={this.handleOnClick} className="fas fa-bars" />
                     <Link to="/">
                         <img onClick={this.closeDropdown} className="pokemonTitle"
-                            src="https://fontmeme.com/permalink/200304/fe08af5a72abf719bf67178557262a8f.png"
+                            src="https://fontmeme.com/permalink/200316/604317c00ac818f07a44974dc1f959f0.png"
                             alt="Title" />
                     </Link>
                     <Link to="/favourites/">
@@ -48,62 +48,64 @@ class Header extends React.Component<Props, State> {
                     </Link>
                 </div>
                 {this.state.isOpen &&
-                    <div onClick={this.handleOnClick} className="linkDiv" style={{ height: "320px" }}>
-                        <Link className="links" to={{
+                    <div onClick={this.handleOnClick} className="linkDiv" style={{ display: "flex" }}>
+                        <div className="styledLinkDiv">
+                        <Link className="links" id="red" to={{
                             pathname: '/category/red',
                             state: {
                                 color: "red"
                             }
                         }}>Red</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="blue" to={{
                             pathname: '/category/blue',
                             state: {
                                 color: "blue"
                             }
                         }}>Blue</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="green" to={{
                             pathname: '/category/green',
                             state: {
                                 color: "green"
                             }
                         }}>Green</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="pink" to={{
                             pathname: '/category/pink',
                             state: {
                                 color: "pink"
                             }
                         }}>Pink</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="yellow" to={{
                             pathname: '/category/yellow',
                             state: {
                                 color: "yellow"
                             }
                         }}>Yellow</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="purple" to={{
                             pathname: '/category/purple',
                             state: {
                                 color: "purple"
                             }
                         }}>Purple</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="black" to={{
                             pathname: '/category/black',
                             state: {
                                 color: "black"
                             }
                         }}>Black</Link>
 
-                        <Link className="links" to={{
+                        <Link className="links" id="white" to={{
                             pathname: '/category/white',
                             state: {
                                 color: "white"
                             }
                         }}>White</Link>
+                        </div>
 
                     </div>}
             </header>
