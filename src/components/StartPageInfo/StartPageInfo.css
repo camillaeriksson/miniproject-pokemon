@@ -1,0 +1,6 @@
+.info_container {
+    height: 30rem;
+    width: 70%;
+    background-color: coral;
+    position: absolute;
+}

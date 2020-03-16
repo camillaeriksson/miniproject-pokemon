@@ -1,15 +1,12 @@
 import React from "react"
 import PokemonOfTheDay from "../PokemonOfTheDay/PokemonOfTheDay"
+import StartPageInfo from "../StartPageInfo/StartPageInfo"
 import ErrorBoundary from "../Errorboundry/errorboundry"
 import "./StartPage.css"
 
-interface Props {
+interface Props { }
 
-}
-
-interface State {
-
-}
+interface State { }
 
 class StartPage extends React.Component<Props, State> {
 
@@ -18,6 +15,7 @@ class StartPage extends React.Component<Props, State> {
             <ErrorBoundary>
                 <div className="background_img">
                     <PokemonOfTheDay />
+                    <StartPageInfo />
                 </div>
             </ErrorBoundary>
         )
