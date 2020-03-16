@@ -19,7 +19,9 @@ import { Pokemon } from "../App/App"
 interface Props {
     name: string,
     pokemonUrl: string,
-    addPokemon: (pokemon: Pokemon) => void
+    addPokemon: (pokemon: Pokemon) => void,
+    // handleModal: (index: number) => void
+    showModal: boolean
 }
 
 
@@ -178,7 +180,7 @@ export default class Card extends React.Component<Props, State> {
     }
 
     private get modal() {
-        if (this.state.showModal) {
+        if (this.props.showModal) {
             return (
                 <Modal>
                     <div className="modal_container" onClick={this.toggleModal}>

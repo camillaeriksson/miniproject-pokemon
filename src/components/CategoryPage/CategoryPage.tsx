@@ -15,7 +15,9 @@ interface State {
     pokemons: {
         name: string,
         url: string,
-    }[]
+    }[];
+    showModal: boolean;
+    modalIndex: number;
 }
 
 class CategoryPage extends React.Component<Props, State> {
@@ -23,7 +25,9 @@ class CategoryPage extends React.Component<Props, State> {
         super(props)
 
         this.state = {
-            pokemons: []
+            pokemons: [],
+            showModal: false,
+            modalIndex: 0
         }
     }
 
@@ -46,18 +50,27 @@ class CategoryPage extends React.Component<Props, State> {
         this.pokemonApi()
     }
 
+    handleModal = (index: number) => {
+        this.setState({
+            showModal: !this.state.showModal,
+            modalIndex: index
+        })
+    }
+
     render() {
         return (
             <ErrorBoundary>
                 <div className="category_container">
-                    {this.state.pokemons ? (
-                        <div className="containers">
-                            {this.state.pokemons.map((pokemon, index) => (
-                                <Card key={index} name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
-                            ))}
-                        </div>) : (
-                            <h1>loading...</h1>
-                        )}
+                    {this.state.pokemons.length > 0 ? <Card key={this.state.modalIndex} showModal={true} name={this.state.pokemons[this.state.modalIndex].name} pokemonUrl={this.state.pokemons[this.state.modalIndex].url} addPokemon={this.props.addToFavorite} /> :
+                        this.state.pokemons ? (
+                            <div className="containers">
+                                {this.state.pokemons.map((pokemon, index) => (
+                                    <Card key={index} showModal={false} name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
+                                ))}
+                            </div>) : (
+                                <h1>loading...</h1>
+                            )
+                    }
                 </div>
             </ErrorBoundary>
         )
