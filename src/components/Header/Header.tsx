@@ -40,7 +40,8 @@ class Header extends React.Component<Props, State> {
                     <i onClick={this.handleOnClick} className="fas fa-bars" />
                     <Link to="/">
                         <img onClick={this.closeDropdown} className="pokemonTitle"
-                            src="https://fontmeme.com/permalink/200304/fe08af5a72abf719bf67178557262a8f.png"
+                            /* src="https://fontmeme.com/permalink/200304/fe08af5a72abf719bf67178557262a8f.png" */
+                            src="https://fontmeme.com/permalink/200316/604317c00ac818f07a44974dc1f959f0.png"
                             alt="Title" />
                     </Link>
                     <Link to="/favourites/">
@@ -48,7 +49,7 @@ class Header extends React.Component<Props, State> {
                     </Link>
                 </div>
                 {this.state.isOpen &&
-                    <div onClick={this.handleOnClick} className="linkDiv" style={{ height: "320px" }}>
+                    <div onClick={this.handleOnClick} className="linkDiv" style={{ display: "block" }}>
                         <Link className="links" to={{
                             pathname: '/category/red',
                             state: {

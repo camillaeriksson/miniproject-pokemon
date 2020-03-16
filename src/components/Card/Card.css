@@ -1,11 +1,12 @@
- .cardContainer{
-   background: yellow;
-   margin: 0.5rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   width: 100%;
+.cardContainer{
+    background-color: rgba(0, 153, 255, 0.349);
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0.4rem 0.7rem #0000001a;
 }  
 
 h1 {
