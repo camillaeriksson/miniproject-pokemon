@@ -17,7 +17,7 @@ export default class StartPageInfo extends React.Component<Props, State> {
             <ErrorBoundary>
                 <div className="info_container">
                     <img className="squirtle_pic" src={squirtle}></img>
-                    <p className="blue_text"><b>Start adding</b> Squirtle and his blue friends to your pokeball!</p>
+                    <p className="blue_text"><b>Start adding</b><br /> Squirtle and his blue friends to your pokeball!</p>
                     <Link to={{
                         pathname: '/category/blue',
                         state: {
