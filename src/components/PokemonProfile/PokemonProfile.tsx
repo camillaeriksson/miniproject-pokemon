@@ -16,9 +16,9 @@ interface Props {
 export default class PokemonProfile extends React.Component<Props, State> {
 
     private capitalizeWord = (str: string) => {
-        if (str.length === 0) return "";
+        if (str.length === 0) return ""
         str = str.replace("-", " ")
-        return str[0].toUpperCase() + str.slice(1);
+        return str[0].toUpperCase() + str.slice(1)
     }
     render() {
         return (

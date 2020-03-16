@@ -3,9 +3,7 @@ import ReactDOM from "react-dom"
 
 const modalRoot = document.getElementById('modal-root') as HTMLDivElement
 
-interface Props {
-
-}
+interface Props { }
 
 export default class Modal extends React.Component<Props> {
 

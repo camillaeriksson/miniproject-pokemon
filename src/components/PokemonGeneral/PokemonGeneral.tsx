@@ -35,14 +35,14 @@ interface Props {
 export default class PokemonGeneral extends React.Component<Props, State> {
 
     private capitalizeWord = (str: string) => {
-        if (str.length === 0) return "";
+        if (str.length === 0) return ""
         str = str.replace("-", " ")
-        return str[0].toUpperCase() + str.slice(1);
+        return str[0].toUpperCase() + str.slice(1)
     }
 
     private removeSymbols = (str: string) => {
-        if (str.length === 0) return "";
-        return str.replace('\n', ' ').replace('\t', ' ').replace('\f', ' ');
+        if (str.length === 0) return ""
+        return str.replace('\n', ' ').replace('\t', ' ').replace('\f', ' ')
     }
 
     render() {
