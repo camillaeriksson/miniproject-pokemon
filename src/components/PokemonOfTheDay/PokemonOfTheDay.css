@@ -17,23 +17,22 @@
 }
 
 .myButton {
-	background-color:#ffc400;
-	border-radius:12px;
-	border:1px solid #ffe100;
+	background-color:#a6dbff;
+	border-radius:20px;
+	border:1px solid #0a6dbf;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:14px;
-	padding:5px 10px;
+	font-size:17px;
+	padding:8px 23px;
 	text-decoration:none;
     text-shadow:0px 1px 0px #000000;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 .myButton:hover {
-	background-color:#ebc738;
+	background-color:#88b5d4;
 }
-
 .myButton:active {
 	position:relative;
 	top:1px;
@@ -47,21 +46,32 @@ h1 {
     margin: 1.2rem 0 0.3rem 0 !important; /* To overwrite bootstrap*/
     text-align: center;
     font-weight: bold;
+    font-variant: small-caps;
 }
 
 .heading_desktop {
     display: none;
+    margin-bottom: 2rem;
 }
 
 .heading_and_text {
     display: flex;
-    align-items: center;
     flex-direction: column;
     text-align: center;
+    background-color: white;
+    height: 12rem;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heading_and_text h1 {
     font-size: 2rem;
+}
+
+.heading_and_text p {
+    margin: 0;
 }
 
 @media only screen and (min-width: 490px) {
@@ -80,6 +90,7 @@ h1 {
     .heading_desktop {
         display: block;
         font-size: 25pt;
+        font-variant: small-caps;
     }
 
     .heading_mobile {
@@ -88,5 +99,6 @@ h1 {
 
     .heading_and_text {
         width: 30%;
+        height: 20rem;
     }
   }
