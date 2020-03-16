@@ -1,6 +1,8 @@
 .info_container {
-    height: 30rem;
-    width: 70%;
+    height: 20rem;
+    width: 100%;
+    margin-top: 43rem;
     background-color: coral;
     position: absolute;
+    margin-bottom: 5rem;
 }
