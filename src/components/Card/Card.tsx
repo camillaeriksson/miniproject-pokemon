@@ -32,6 +32,7 @@ export default class Card extends React.Component<Props, State> {
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${props.pokemonIndex}.png?raw=true`
 
         this.state = {
+            loading: true,
             pokemonIndex: props.pokemonIndex,
             imgUrl,
             pokemonName: "",
