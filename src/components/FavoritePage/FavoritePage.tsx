@@ -1,6 +1,5 @@
 import React from 'react'
 import './FavoritePage.css'
-
 import { Pokemon } from "../App/App"
 
 interface Props {

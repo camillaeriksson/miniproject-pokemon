@@ -17,8 +17,10 @@ import { Results } from "../Interfaces"
 import { Pokemon } from "../App/App"
 
 interface Props {
-    name: string,
-    pokemonUrl: string,
+    name: string
+    pokemonUrl: string
+    pokemonIndex: number
+    isFavourite: boolean
     addPokemon: (pokemon: Pokemon) => void
 }
 
@@ -26,13 +28,14 @@ interface Props {
 export default class Card extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
+        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${props.pokemonIndex}.png?raw=true`
+        
         this.state = {
+            pokemonIndex: props.pokemonIndex,
+            imgUrl,
             pokemonName: "",
-            imgUrl: "",
-            liked: false,
-            showModal: false,
-            pokemonIndex: 0,
             pokemonUrl: "",
+            showModal: false,
             types: [],
             description: "",
             catchRate: 0,
@@ -55,15 +58,12 @@ export default class Card extends React.Component<Props, State> {
     }
 
     handleLike() {
-        this.setState({
-            liked: !this.state.liked
-        })
+        this.props.addPokemon({ name: this.props.name, index: this.state.pokemonIndex, imgUrl: this.state.imgUrl })
     }
 
     async componentDidMount() {
         const pokemonUrl = this.props.pokemonUrl
-        const pokemonIndex = Number(this.props.pokemonUrl.slice(42, this.props.pokemonUrl.length - 1))
-        const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonIndex
+        const url = "https://pokeapi.co/api/v2/pokemon/" + this.state.pokemonIndex
 
         const res = await axios.get<Results>(url)
 
@@ -116,11 +116,7 @@ export default class Card extends React.Component<Props, State> {
             }
         })
 
-        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`
-
         this.setState({
-            imgUrl,
-            pokemonIndex,
             height,
             weight,
             types,
@@ -198,17 +194,17 @@ export default class Card extends React.Component<Props, State> {
 
     render() {
         const pokemonIndex = this.props.pokemonUrl.slice(42, this.props.pokemonUrl.length - 1)
-        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`
-        const theImgs = this.state.liked ? <img className="pokeLike" src={liked} alt="Noliked" /> : <img className="pokeLike" src={unLike} alt="liked" />
+        const theImgs = this.props.isFavourite ? <img className="pokeLike" src={liked} alt="Noliked" /> : <img className="pokeLike" src={unLike} alt="liked" />
 
         return (
             <>
                 <div className="cardContainer">
-                    <div className="pokeball" onClick={this.handleLike}>
-                        <h2 onClick={() => this.handleLike && this.props.addPokemon({ name: this.props.name, index: Number(pokemonIndex), imgUrl })}>
+                    <div className="pokeball" onClick={() => this.handleLike()}>
+                        <h2>
                             {theImgs}
-                        </h2></div>
-                    <img onClick={this.toggleModal} className="imgStyle" src={imgUrl} alt="A pokemon" />
+                        </h2>
+                    </div>
+                    <img onClick={this.toggleModal} className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
                     <h6>Index:{this.state.pokemonIndex}</h6>
                 </div>

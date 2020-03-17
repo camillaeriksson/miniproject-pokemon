@@ -34,7 +34,12 @@ export default class App extends React.Component<Props, State>{
   }
 
   addToFavorite = (pokemon: Pokemon) => {
-    this.setState({ favoritePokemons: [...this.state.favoritePokemons, pokemon] })
+    if (this.state.favoritePokemons.find((favPokemon) => favPokemon.index === pokemon.index)) {
+      // Delete
+    } else {
+      // Add
+      this.setState({ favoritePokemons: [...this.state.favoritePokemons, pokemon] })
+    }
   }
 
   render() {
@@ -46,7 +51,7 @@ export default class App extends React.Component<Props, State>{
             <Header />
             <Switch>
               <Route path="/category/:color">
-                <CategoryPage addToFavorite={this.addToFavorite} />
+                <CategoryPage favoritePokemons={this.state.favoritePokemons} addToFavorite={this.addToFavorite} />
               </Route>
               <Route path="/favourites/">
                 <FavoritePage favoritePokemons={this.state.favoritePokemons} />
