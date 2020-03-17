@@ -1,6 +1,6 @@
-import React from 'react'
-import './App.css'
-import Header from '../Header/Header'
+import React from "react"
+import "./App.css"
+import Header from "../Header/Header"
 import StartPage from "../StartPage/StartPage"
 import {
   BrowserRouter,
@@ -8,8 +8,8 @@ import {
   Route,
 } from "react-router-dom"
 import ErrorBoundary from "../Errorboundry/errorboundry"
-import CategoryPage from '../CategoryPage/CategoryPage'
-import FavoritePage from '../FavoritePage/FavoritePage'
+import CategoryPage from "../CategoryPage/CategoryPage"
+import FavoritePage from "../FavoritePage/FavoritePage"
 
 export type Pokemon = {
   name: string,

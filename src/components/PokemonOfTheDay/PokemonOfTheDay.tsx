@@ -43,6 +43,11 @@ export default class PokemonOfTheDay extends React.Component<Props, State> {
         }
     }
 
+    private removeSymbols = (str: string) => {
+        if (str.length === 0) return ""
+        return str.replace('\n', ' ').replace('\t', ' ').replace('\f', ' ')
+    }
+
     private toggleModal = () => {
         this.setState({
             showModal: !this.state.showModal
@@ -190,8 +195,9 @@ export default class PokemonOfTheDay extends React.Component<Props, State> {
                     <img className="pokemon_pic" src={this.state.imgUrl} alt="Pokemon of the day" />
                     <div className="heading_and_text">
                         <h1 className="heading_desktop">Pokemon of the day</h1>
-                        <h2>{this.capitalizeWord(this.state.pokemonName)}</h2>
+                        <h3>{this.capitalizeWord(this.state.pokemonName)}</h3>
                         <p>Index: {this.state.pokemonIndex}</p>
+                        <p>{this.removeSymbols(this.state.description)}</p>
                     </div>
                 </div>
                 {this.modal}

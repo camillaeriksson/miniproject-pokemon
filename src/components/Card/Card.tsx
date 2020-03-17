@@ -1,10 +1,11 @@
-import React from 'react'
-import './Card.css'
+import React from "react"
+import "./Card.css"
 import unLike from "./pokeball.png"
 import liked from "./pokemon.png"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
 import axios from 'axios'
+import Spinner from "../Spinner/Spinner"
 
 import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 import PokemonStats from "../PokemonStats/PokemonStats"
@@ -29,7 +30,7 @@ export default class Card extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${props.pokemonIndex}.png?raw=true`
-        
+
         this.state = {
             pokemonIndex: props.pokemonIndex,
             imgUrl,
@@ -59,6 +60,12 @@ export default class Card extends React.Component<Props, State> {
 
     handleLike() {
         this.props.addPokemon({ name: this.props.name, index: this.state.pokemonIndex, imgUrl: this.state.imgUrl })
+    }
+
+    handleImageLoad = () => {
+        this.setState({
+            loading: false
+        })
     }
 
     async componentDidMount() {
