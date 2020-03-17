@@ -15,3 +15,7 @@ Go ahead and loose yourself in our Poképedia app.
 GitHub Repo: https://github.com/camillaeriksson/miniproject-pokemon
 
 GitHub Demo: https://camillaeriksson.github.io/miniproject-pokemon/
+
+
+
+
