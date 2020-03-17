@@ -8,14 +8,21 @@ import ErrorBoundary from "../Errorboundry/errorboundry"
 
 import { Pokemon } from "../App/App"
 interface Props extends RouteComponentProps {
+    favoritePokemons: Pokemon[]
     addToFavorite: (pokemon: Pokemon) => void
 }
 
+interface APIResponseObject {
+    name: string,
+    url: string,
+}
+
+interface PokemonData extends APIResponseObject {
+    index: number
+}
+
 interface State {
-    pokemons: {
-        name: string,
-        url: string,
-    }[]
+    pokemons: PokemonData[]
 }
 
 class CategoryPage extends React.Component<Props, State> {
@@ -32,22 +39,23 @@ class CategoryPage extends React.Component<Props, State> {
         const res = await axios.get(getPokemonCategoryURL)
         const { color }: any = this.props.location.state
 
-        const category = res.data.results.find((catObj: any) => catObj.name === color)
+        const category = res.data.results.find((catObj: APIResponseObject) => catObj.name === color)
         const res2 = await axios.get(category.url)
 
-        this.setState({ pokemons: res2.data.pokemon_species })
+        const pokemons: PokemonData[] = res2.data.pokemon_species.map((pokemon: APIResponseObject) => {
+            const pokemonIndex = Number(pokemon.url.slice(42, pokemon.url.length - 1))
+            return { ...pokemon, index: pokemonIndex }
+        })
+
+        this.setState({ pokemons })
     }
 
-    refreshPage(){ 
-        window.location.reload(); 
-    }
 
     async componentDidMount() {
         this.pokemonApi()
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        this.refreshPage()
         this.pokemonApi()
     }
 
@@ -57,9 +65,17 @@ class CategoryPage extends React.Component<Props, State> {
                 <div className="category_container">
                     {this.state.pokemons ? (
                         <div className="containers">
-                            {this.state.pokemons.map((pokemon, index) => (
-                                <Card key={index} name={pokemon.name} pokemonUrl={pokemon.url} addPokemon={this.props.addToFavorite} />
-                            ))}
+                            {this.state.pokemons.map((pokemon, index) => {
+                                const isFavourite = this.props.favoritePokemons.find((favPokemon) => pokemon.index === favPokemon.index)
+                                return <Card
+                                    key={index}
+                                    name={pokemon.name}
+                                    pokemonIndex={pokemon.index}
+                                    isFavourite={Boolean(isFavourite)}
+                                    pokemonUrl={pokemon.url}
+                                    addPokemon={this.props.addToFavorite}
+                                />
+                            })}
                         </div>) : (
                             <h1>loading...</h1>
                         )}

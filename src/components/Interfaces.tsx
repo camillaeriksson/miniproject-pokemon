@@ -2,7 +2,6 @@ export interface State {
     loading?: boolean,
     pokemonName: string,
     imgUrl: string,
-    liked: boolean,
     pokemonUrl: string,
     pokemonIndex: number,
     showModal: boolean,

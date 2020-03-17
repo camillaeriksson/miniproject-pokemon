@@ -20,7 +20,6 @@ export default class PokemonOfTheDay extends React.Component<Props, State> {
         this.state = {
             pokemonName: "",
             pokemonUrl: "",
-            liked: false,
             imgUrl: "",
             pokemonIndex: 0,
             showModal: false,
