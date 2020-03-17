@@ -1,6 +1,6 @@
 import React from "react"
 import { withRouter, RouteComponentProps } from "react-router-dom"
-import './CategoryPage.css'
+import "./CategoryPage.css"
 import Card from "../Card/Card"
 import axios from "axios"
 import { ThemeConsumer } from "styled-components"
@@ -38,11 +38,16 @@ class CategoryPage extends React.Component<Props, State> {
         this.setState({ pokemons: res2.data.pokemon_species })
     }
 
+    refreshPage(){ 
+        window.location.reload(); 
+    }
+
     async componentDidMount() {
         this.pokemonApi()
     }
 
     componentWillReceiveProps(nextProps: Props) {
+        this.refreshPage()
         this.pokemonApi()
     }
 
