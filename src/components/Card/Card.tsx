@@ -213,7 +213,7 @@ export default class Card extends React.Component<Props, State> {
                         </h2>
                     </div>
                     {this.state.loading ?<Spinner/>: null}
-                    <img onClick={this.toggleModal} className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
+                    <img onClick={this.toggleModal} onLoad={this.handleImageLoad} className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
                     <h6>Index:{this.state.pokemonIndex}</h6>
                 </div>
