@@ -1,5 +1,5 @@
-import React from 'react'
-import './Card.css'
+import React from "react"
+import "./Card.css"
 import unLike from "./pokeball.png"
 import liked from "./pokemon.png"
 import Modal from "../Modal/modal"
