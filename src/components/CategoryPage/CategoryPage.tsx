@@ -50,16 +50,12 @@ class CategoryPage extends React.Component<Props, State> {
         this.setState({ pokemons })
     }
 
-    refreshPage(){ 
-        window.location.reload(); 
-    }
 
     async componentDidMount() {
         this.pokemonApi()
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        this.refreshPage()
         this.pokemonApi()
     }
 
