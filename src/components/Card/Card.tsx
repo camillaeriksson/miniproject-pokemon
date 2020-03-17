@@ -29,7 +29,7 @@ interface Props {
 export default class Card extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-        const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${props.pokemonIndex}.png?raw=true`
+        let imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${props.pokemonIndex}.png?raw=true`
 
         this.state = {
             pokemonIndex: props.pokemonIndex,
@@ -200,9 +200,8 @@ export default class Card extends React.Component<Props, State> {
     }
 
     render() {
-        const pokemonIndex = this.props.pokemonUrl.slice(42, this.props.pokemonUrl.length - 1)
+        // const pokemonIndex = this.state.pokemonIndex
         const theImgs = this.props.isFavourite ? <img className="pokeLike" src={liked} alt="Noliked" /> : <img className="pokeLike" src={unLike} alt="liked" />
-
         return (
             <>
                 <div className="cardContainer">
