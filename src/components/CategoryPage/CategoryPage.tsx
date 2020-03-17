@@ -38,11 +38,16 @@ class CategoryPage extends React.Component<Props, State> {
         this.setState({ pokemons: res2.data.pokemon_species })
     }
 
+    refreshPage(){ 
+        window.location.reload(); 
+    }
+
     async componentDidMount() {
         this.pokemonApi()
     }
 
     componentWillReceiveProps(nextProps: Props) {
+        this.refreshPage()
         this.pokemonApi()
     }
 

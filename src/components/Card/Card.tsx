@@ -5,6 +5,7 @@ import liked from "./pokemon.png"
 import Modal from "../Modal/modal"
 import "../Modal/modal.css"
 import axios from 'axios'
+import Spinner from "../Spinner/Spinner"
 
 import PokemonGeneral from "../PokemonGeneral/PokemonGeneral"
 import PokemonStats from "../PokemonStats/PokemonStats"
@@ -215,7 +216,7 @@ export default class Card extends React.Component<Props, State> {
                         <h2 onClick={() => this.handleLike && this.props.addPokemon({ name: this.props.name, index: Number(pokemonIndex), imgUrl })}>
                             {theImgs}
                         </h2></div>  
-                        {this.state.loading?<h1>Loading image...</h1>: null}
+                        {this.state.loading?<Spinner/>: null}
                     <img onClick={this.toggleModal} onLoad={this.handleImageLoad} className="imgStyle" src={imgUrl} alt="A pokemon" />
                         
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
