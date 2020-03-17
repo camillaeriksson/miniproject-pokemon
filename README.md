@@ -10,3 +10,8 @@ Go to your favourites by clicking on the pokémon ball in the navbar. There you 
 
 On top of this you will also be greeted with a "Pokémon of the day" on the start page. By clicking on the Pokémon of the day you will get info about it. This means you will discover a new pokémon every day!  
 Go ahead and loose yourself in our Poképedia app.  
+
+
+GitHub Repo: https://github.com/camillaeriksson/miniproject-pokemon
+
+GitHub Demo: https://camillaeriksson.github.io/miniproject-pokemon/
