@@ -32,6 +32,7 @@ export default class Card extends React.Component<Props, State> {
         let imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${props.pokemonIndex}.png?raw=true`
 
         this.state = {
+            loading: true,
             pokemonIndex: props.pokemonIndex,
             imgUrl,
             pokemonName: "",
@@ -210,7 +211,8 @@ export default class Card extends React.Component<Props, State> {
                             {theImgs}
                         </h2>
                     </div>
-                    <img onClick={this.toggleModal} className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
+                    {this.state.loading ?<Spinner/>: null}
+                    <img onClick={this.toggleModal} onLoad={this.handleImageLoad} className="imgStyle" src={this.state.imgUrl} alt="A pokemon" />
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
                     <h6>Index:{this.state.pokemonIndex}</h6>
                 </div>
