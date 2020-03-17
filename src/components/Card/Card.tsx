@@ -27,6 +27,7 @@ export default class Card extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
+            loading: true,
             pokemonName: "",
             imgUrl: "",
             liked: false,
@@ -57,6 +58,12 @@ export default class Card extends React.Component<Props, State> {
     handleLike() {
         this.setState({
             liked: !this.state.liked
+        })
+    }
+
+    handleImageLoad = () => {
+        this.setState({
+            loading: false
         })
     }
 
@@ -207,8 +214,10 @@ export default class Card extends React.Component<Props, State> {
                     <div className="pokeball" onClick={this.handleLike}>
                         <h2 onClick={() => this.handleLike && this.props.addPokemon({ name: this.props.name, index: Number(pokemonIndex), imgUrl })}>
                             {theImgs}
-                        </h2></div>
-                    <img onClick={this.toggleModal} className="imgStyle" src={imgUrl} alt="A pokemon" />
+                        </h2></div>  
+                        {this.state.loading?<h1>Loading image...</h1>: null}
+                    <img onClick={this.toggleModal} onLoad={this.handleImageLoad} className="imgStyle" src={imgUrl} alt="A pokemon" />
+                        
                     <h1>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}</h1>
                     <h6>Index:{this.state.pokemonIndex}</h6>
                 </div>
