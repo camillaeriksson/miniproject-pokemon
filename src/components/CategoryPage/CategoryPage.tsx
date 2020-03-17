@@ -3,7 +3,6 @@ import { withRouter, RouteComponentProps } from "react-router-dom"
 import "./CategoryPage.css"
 import Card from "../Card/Card"
 import axios from "axios"
-import { ThemeConsumer } from "styled-components"
 import ErrorBoundary from "../Errorboundry/errorboundry"
 
 import { Pokemon } from "../App/App"
@@ -65,10 +64,10 @@ class CategoryPage extends React.Component<Props, State> {
                 <div className="category_container">
                     {this.state.pokemons ? (
                         <div className="containers">
-                            {this.state.pokemons.map((pokemon, index) => {
+                            {this.state.pokemons.map((pokemon) => {
                                 const isFavourite = this.props.favoritePokemons.find((favPokemon) => pokemon.index === favPokemon.index)
                                 return <Card
-                                    key={index}
+                                    key={pokemon.index}
                                     name={pokemon.name}
                                     pokemonIndex={pokemon.index}
                                     isFavourite={Boolean(isFavourite)}
