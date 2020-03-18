@@ -13,7 +13,7 @@ Go ahead and loose yourself in our Poképedia app.
 
 ### GitHub Repo: https://github.com/camillaeriksson/miniproject-pokemon
 
-### GitHub Demo: https://camillaeriksson.github.io/miniproject-pokemon/
+### Demo: https://serene-ritchie-0360d7.netlify.com
 
 
 
